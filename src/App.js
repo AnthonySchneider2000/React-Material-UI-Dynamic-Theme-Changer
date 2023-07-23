@@ -1,4 +1,4 @@
-//TODOS: Change Font, Make color picker look better, Push to github
+//TODOS: Change Font, Make color picker look better, move sidebar to own component, add bevel to sidebar
 import React, { useState } from "react";
 import Switch from "@mui/material/Switch";
 import {
