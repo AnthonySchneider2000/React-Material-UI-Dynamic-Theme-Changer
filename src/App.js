@@ -8,7 +8,6 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
-  Popover,
   Button,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -18,7 +17,6 @@ import { ColorLens } from "@mui/icons-material";
 import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Toaster, toast } from "react-hot-toast";
 import tinycolor from "tinycolor2";
-import { ChromePicker } from "react-color";
 
 const initialTheme = createTheme({
   palette: {
@@ -55,7 +53,6 @@ const App = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
-  const [colorPickerAnchor, setColorPickerAnchor] = useState(null); // Track the anchor element for the color picker popover
 
   const handleThemeChange = () => {
     const secondaryColor = darkenColor(userInputColor, 6);
@@ -107,18 +104,7 @@ const App = () => {
     createToast("You have 3 new messages");
   };
 
-  const handleColorPickerOpen = (event) => {
-    setColorPickerAnchor(event.currentTarget);
-  };
 
-  const handleColorPickerClose = () => {
-    setColorPickerAnchor(null);
-  };
-
-  const handleColorPickerChange = (color) => {
-    setUserInputColor(color.hex);
-    handleColorPickerClose();
-  };
 
   return (
     <>
@@ -133,8 +119,7 @@ const App = () => {
             marginTop: "20px",
           }}
         >
-          {/* Change Theme Button */}
-          <Button variant="contained" onClick={handleColorPickerOpen}>
+          <Button variant="contained">
             Pretty Colors
           </Button>
           <Switch color="secondary" />
@@ -179,25 +164,6 @@ const App = () => {
             </List>
           </Drawer>
         </div>
-        {/* Color Picker Popover */}
-        <Popover
-          open={Boolean(colorPickerAnchor)}
-          anchorEl={colorPickerAnchor}
-          onClose={handleColorPickerClose}
-          anchorOrigin={{
-            vertical: "bottom",
-            horizontal: "center",
-          }}
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "center",
-          }}
-        >
-          <ChromePicker
-            color={userInputColor}
-            onChange={handleColorPickerChange}
-          />
-        </Popover>
       </ThemeProvider>
     </>
   );
