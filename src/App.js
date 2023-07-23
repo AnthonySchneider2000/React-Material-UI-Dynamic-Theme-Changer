@@ -91,20 +91,16 @@ const App = () => {
     }
   };
   const createToast = (message) => {
-
     toast.success(message, {
       style: {
         background: currentTheme.palette.primary.main,
         color: currentTheme.palette.primary.contrastText,
       },
     });
-
   };
   const handleNewMessages = () => {
     createToast("You have 3 new messages");
   };
-
-
 
   return (
     <>
@@ -119,9 +115,7 @@ const App = () => {
             marginTop: "20px",
           }}
         >
-          <Button variant="contained">
-            Pretty Colors
-          </Button>
+          <Button variant="contained">Pretty Colors</Button>
           <Switch color="secondary" />
         </div>
 
@@ -140,13 +134,11 @@ const App = () => {
                 </ListItemIcon>
                 <ListItemText primary="Search" />
               </ListItem>
-              <ListItem button>
+              <ListItem button onClick={handleThemeChange}>
                 <ListItemIcon>
                   <ColorLens />
                 </ListItemIcon>
-                <Button onClick={handleThemeChange} variant="contained">
-                  Change Theme
-                </Button>
+                <ListItemText primary="Change Theme" />
                 <input
                   type="color"
                   value={userInputColor}
