@@ -129,7 +129,7 @@ const App = () => {
           <StyledAvatar>OP</StyledAvatar>
         </div>
 
-        <div style={{ display: "flex" }}>
+        <div>
           <Drawer className="drawerContainer" variant="permanent">
             <List>
               <ListItem button onClick={handleNewMessages}>
