@@ -9,8 +9,9 @@ import {
   ListItemIcon,
   ListItemText,
   Button,
+  Avatar,
 } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
 import InboxIcon from "@mui/icons-material/Inbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { ColorLens } from "@mui/icons-material";
@@ -57,7 +58,7 @@ const App = () => {
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
 
   const handleThemeChange = () => {
-    const secondaryColor = darkenColor(userInputColor, 6);
+    const secondaryColor = darkenColor(userInputColor, 16);
     const backgroundColorDefault = lightenColor(userInputColor, 6);
     const backgroundColorPaper = lightenColor(userInputColor, 4);
     const themeMode = colorIsDark(userInputColor) ? "dark" : "light";
@@ -94,7 +95,6 @@ const App = () => {
     setColorPickerColor(event.target.value);
     setUserInputColor(event.target.value);
   };
-  
 
   const handleDarkModeToggle = () => {
     setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
@@ -116,6 +116,20 @@ const App = () => {
     createToast("You have 3 new messages");
   };
 
+  const StyledAvatar = styled(Avatar)`
+    ${({ theme }) => `
+cursor: pointer;
+background-color: ${theme.palette.primary.main};
+transition: ${theme.transitions.create(["background-color", "transform"], {
+      duration: theme.transitions.duration.standard,
+    })};
+&:hover {
+  background-color: ${theme.palette.secondary.main};
+  transform: scale(1.3);
+}
+`}
+  `;
+
   return (
     <>
       <Toaster />
@@ -125,6 +139,7 @@ const App = () => {
         <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
           <Switch color="secondary" />
+          <StyledAvatar>OP</StyledAvatar>
         </div>
 
         <div style={{ display: "flex" }}>
@@ -134,13 +149,13 @@ const App = () => {
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="New Messages"/>
+                <ListItemText primary="New Messages" />
               </ListItem>
               <ListItem button>
                 <ListItemIcon>
                   <SearchIcon />
                 </ListItemIcon>
-                <ListItemText primary="Search"/>
+                <ListItemText primary="Search" />
               </ListItem>
               <ListItem button onClick={handleDarkModeToggle}>
                 <ListItemIcon>
