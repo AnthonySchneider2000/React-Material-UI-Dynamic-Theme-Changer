@@ -126,7 +126,7 @@ const App = () => {
         <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
           <Switch color="secondary" />
-          <StyledAvatar>OP</StyledAvatar>
+          <StyledAvatar>TS</StyledAvatar>
         </div>
 
         <div>

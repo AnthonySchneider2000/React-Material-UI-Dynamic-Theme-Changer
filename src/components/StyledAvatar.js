@@ -5,6 +5,7 @@ import Avatar from '@mui/material/Avatar';
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
   cursor: 'pointer',
   backgroundColor: theme.palette.primary.main,
+  color: theme.palette.primary.contrastText,
   transition: theme.transitions.create(['background-color', 'transform'], {
     duration: theme.transitions.duration.standard,
   }),
