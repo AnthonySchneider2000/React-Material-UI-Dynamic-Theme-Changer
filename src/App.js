@@ -11,9 +11,12 @@ import {
   Button,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+//sound muted and unmuted icons
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import InboxIcon from "@mui/icons-material/Inbox";
 import SearchIcon from "@mui/icons-material/Search";
-import { ColorLens } from "@mui/icons-material";
+import { ColorLens, VolumeUp } from "@mui/icons-material";
 import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Toaster, toast } from "react-hot-toast";
 import StyledAvatar from "./components/StyledAvatar.js";
@@ -56,6 +59,7 @@ const App = () => {
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
+  const [muted, setMuted] = useState(false); // Track muted state, false = unmuted, true = muted
 
   const handleThemeChange = () => {
     const secondaryColor = darkenColor(userInputColor, 16);
@@ -115,7 +119,9 @@ const App = () => {
   const handleNewMessages = () => {
     createToast("You have 3 new messages");
   };
-
+  const handleMutedToggle = () => {
+    setMuted((prevMuted) => !prevMuted); // Toggle the muted state
+  };
 
   return (
     <>
@@ -127,7 +133,8 @@ const App = () => {
         {/* content */}
         <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
-          <Switch color="secondary" />
+          {muted ? <VolumeUpIcon /> : <VolumeOffIcon />}
+          <Switch color="secondary" checked={muted} onChange={handleMutedToggle} className="muteSwitch"/>
         </div>
 
         {/* avatar */}

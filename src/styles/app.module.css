@@ -9,7 +9,7 @@
 }
 
 .centeredContent {
-  display: flex;
-  justify-content: center;
-  margin-top: "20px";
+  position: absolute;
+  top: 15%;
+  left: 50%;
 }
