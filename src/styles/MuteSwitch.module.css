@@ -1,0 +1,4 @@
+.muteSwitchContainer {
+  display: flex;
+  align-items: center; /* Align the items (icon and switch) vertically */
+}

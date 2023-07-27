@@ -120,9 +120,11 @@ const HomePage = () => {
         {/* content */}
         <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
-          <MuteSwitch/>
         </div>
-
+        {/* mute switch */}
+        <div className={styles.muteSwitch}>
+          <MuteSwitch />
+        </div>
         {/* avatar */}
         <div className={styles.avatar}>
           <StyledAvatar>TS</StyledAvatar>

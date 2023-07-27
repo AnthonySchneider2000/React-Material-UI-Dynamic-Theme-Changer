@@ -7,6 +7,13 @@
   right: 0;
   margin: 0.5%;
 }
+.muteSwitch{
+  /* in top right, to the left of avatar */
+  position: absolute;
+  top: 0;
+  right: 5%;
+  margin: 0.5%;
+}
 
 .centeredContent {
   position: absolute;
