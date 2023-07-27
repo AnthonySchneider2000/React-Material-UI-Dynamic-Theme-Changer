@@ -1,5 +1,13 @@
 /* app.module.css */
 
+.avatar{
+  /* in top right */
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5%;
+}
+
 .centeredContent {
   display: flex;
   justify-content: center;

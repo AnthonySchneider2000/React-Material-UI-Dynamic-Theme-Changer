@@ -123,12 +123,19 @@ const App = () => {
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
+
+        {/* content */}
         <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
           <Switch color="secondary" />
+        </div>
+
+        {/* avatar */}
+        <div className={styles.avatar}>
           <StyledAvatar>TS</StyledAvatar>
         </div>
 
+        {/* drawer */}
         <div>
           <Drawer className="drawerContainer" variant="permanent">
             <List>
