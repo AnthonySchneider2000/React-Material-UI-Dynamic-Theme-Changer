@@ -9,14 +9,14 @@ import {
   ListItemIcon,
   ListItemText,
   Button,
-  Avatar,
 } from "@mui/material";
-import { styled, createTheme, ThemeProvider } from "@mui/material/styles";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import InboxIcon from "@mui/icons-material/Inbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { ColorLens } from "@mui/icons-material";
 import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Toaster, toast } from "react-hot-toast";
+import StyledAvatar from "./components/StyledAvatar.js";
 import tinycolor from "tinycolor2";
 import styles from "./styles/app.module.css";
 
@@ -116,19 +116,6 @@ const App = () => {
     createToast("You have 3 new messages");
   };
 
-  const StyledAvatar = styled(Avatar)`
-    ${({ theme }) => `
-cursor: pointer;
-background-color: ${theme.palette.primary.main};
-transition: ${theme.transitions.create(["background-color", "transform"], {
-      duration: theme.transitions.duration.standard,
-    })};
-&:hover {
-  background-color: ${theme.palette.secondary.main};
-  transform: scale(1.3);
-}
-`}
-  `;
 
   return (
     <>
