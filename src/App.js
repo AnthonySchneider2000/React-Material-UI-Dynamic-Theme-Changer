@@ -81,7 +81,7 @@ const App = () => {
     });
 
     setCurrentTheme(updatedTheme); // Update the current theme
-    setColorPickerColor(secondaryColor); // Update the color picker color to contrast with the new primary color
+    setColorPickerColor(darkenColor(userInputColor,6)); // Update the color picker color to contrast with the new primary color
   };
 
   const colorIsDark = (hexColor) => {
