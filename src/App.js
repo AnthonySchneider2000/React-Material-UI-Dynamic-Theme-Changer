@@ -1,4 +1,4 @@
-//TODOS: Change Font, Make color picker look better, move sidebar to own component, add bevel to sidebar
+//TODOS: Change Font, move sidebar to own component, add bevel to sidebar
 import React, { useState } from "react";
 import Switch from "@mui/material/Switch";
 import {
@@ -17,6 +17,7 @@ import { ColorLens } from "@mui/icons-material";
 import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Toaster, toast } from "react-hot-toast";
 import tinycolor from "tinycolor2";
+import styles from "./styles/app.module.css";
 
 const initialTheme = createTheme({
   palette: {
@@ -53,11 +54,13 @@ const App = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
+  const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
 
   const handleThemeChange = () => {
     const secondaryColor = darkenColor(userInputColor, 6);
     const backgroundColorDefault = lightenColor(userInputColor, 6);
     const backgroundColorPaper = lightenColor(userInputColor, 4);
+    const themeMode = colorIsDark(userInputColor) ? "dark" : "light";
 
     const updatedTheme = createTheme({
       palette: {
@@ -71,16 +74,27 @@ const App = () => {
           default: backgroundColorDefault,
           paper: backgroundColorPaper,
         },
+        mode: themeMode,
       },
       // Additional theme customizations...
     });
 
-    setCurrentTheme(updatedTheme);
+    setCurrentTheme(updatedTheme); // Update the current theme
+    setColorPickerColor(secondaryColor); // Update the color picker color to contrast with the new primary color
+  };
+
+  const colorIsDark = (hexColor) => {
+    const threshold = 76; // this is the closest match I could find for the default material UI value
+    const baseColor = tinycolor(hexColor);
+    const luminance = baseColor.getLuminance() * 255;
+    return luminance < threshold;
   };
 
   const handleColorChange = (event) => {
+    setColorPickerColor(event.target.value);
     setUserInputColor(event.target.value);
   };
+  
 
   const handleDarkModeToggle = () => {
     setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
@@ -108,13 +122,7 @@ const App = () => {
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "20px",
-          }}
-        >
+        <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
           <Switch color="secondary" />
         </div>
@@ -126,24 +134,13 @@ const App = () => {
                 <ListItemIcon>
                   <InboxIcon />
                 </ListItemIcon>
-                <ListItemText primary="New Messages" />
+                <ListItemText primary="New Messages"/>
               </ListItem>
               <ListItem button>
                 <ListItemIcon>
                   <SearchIcon />
                 </ListItemIcon>
-                <ListItemText primary="Search" />
-              </ListItem>
-              <ListItem button onClick={handleThemeChange}>
-                <ListItemIcon>
-                  <ColorLens />
-                </ListItemIcon>
-                <ListItemText primary="Change Theme" />
-                <input
-                  type="color"
-                  value={userInputColor}
-                  onChange={handleColorChange}
-                />
+                <ListItemText primary="Search"/>
               </ListItem>
               <ListItem button onClick={handleDarkModeToggle}>
                 <ListItemIcon>
@@ -152,6 +149,18 @@ const App = () => {
                 </ListItemIcon>
                 <ListItemText primary={darkMode ? "Light Mode" : "Dark Mode"} />{" "}
                 {/* Change the text based on the mode */}
+              </ListItem>
+              <ListItem button onClick={handleThemeChange}>
+                <ListItemIcon>
+                  <ColorLens />
+                </ListItemIcon>
+                <ListItemText primary="Custom Theme" />
+                <input
+                  style={{ backgroundColor: "transparent", border: "none" }}
+                  type="color"
+                  value={colorPickerColor}
+                  onChange={handleColorChange}
+                />
               </ListItem>
             </List>
           </Drawer>
