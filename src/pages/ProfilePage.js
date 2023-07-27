@@ -1,13 +1,12 @@
 //TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme, add profile page
 import React, { useState } from "react";
-import {
-  CssBaseline,
-  Button,
-} from "@mui/material";
+import { CssBaseline, Button, Typography } from "@mui/material";
+import HomeIcon from "@mui/icons-material/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import tinycolor from "tinycolor2";
 import styles from "../styles/app.module.css";
+import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
@@ -73,7 +72,7 @@ const HomePage = () => {
     });
 
     setCurrentTheme(updatedTheme); // Update the current theme
-    setColorPickerColor(darkenColor(userInputColor,6)); // Update the color picker color to contrast with the new primary color
+    setColorPickerColor(darkenColor(userInputColor, 6)); // Update the color picker color to contrast with the new primary color
   };
 
   const colorIsDark = (hexColor) => {
@@ -116,11 +115,22 @@ const HomePage = () => {
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
+        {/* heading */}
+        <div className={styles.heading}>
+          <Typography variant="h1" component="h1" gutterBottom>
+            Profile
+          </Typography>
+        </div>
 
         {/* content */}
         <div className={styles.centeredContent}>
-          <Button variant="contained">Pretty Colors</Button>
+          <Link to="/">
+            <Button variant="contained" startIcon={<HomeIcon />}>
+              Home Page
+            </Button>
+          </Link>
         </div>
+
         {/* mute switch */}
         <div className={styles.muteSwitch}>
           <MuteSwitch />
@@ -133,7 +143,14 @@ const HomePage = () => {
 
         {/* drawer */}
         <div>
-          <Sidebar handleThemeChange={handleThemeChange} darkMode={darkMode} handleDarkModeToggle={handleDarkModeToggle} handleNewMessages={handleNewMessages} colorPickerColor={colorPickerColor} handleColorChange={handleColorChange}/>
+          <Sidebar
+            handleThemeChange={handleThemeChange}
+            darkMode={darkMode}
+            handleDarkModeToggle={handleDarkModeToggle}
+            handleNewMessages={handleNewMessages}
+            colorPickerColor={colorPickerColor}
+            handleColorChange={handleColorChange}
+          />
         </div>
       </ThemeProvider>
     </>

@@ -7,6 +7,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import tinycolor from "tinycolor2";
+import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
@@ -126,9 +127,11 @@ const HomePage = () => {
           <MuteSwitch />
         </div>
         {/* avatar */}
+        <Link to="/profile" style={{ textDecoration: "none", color: "inherit" }}>
         <div className={styles.avatar}>
           <StyledAvatar>TS</StyledAvatar>
         </div>
+        </Link>
 
         {/* drawer */}
         <div>

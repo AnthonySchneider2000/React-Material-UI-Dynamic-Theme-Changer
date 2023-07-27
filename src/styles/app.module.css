@@ -15,8 +15,16 @@
   margin: 0.5%;
 }
 
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .centeredContent {
   position: absolute;
   top: 15%;
   left: 50%;
+  transform: translate(-50%, -50%); /* Center the div exactly in the middle */
+
 }
