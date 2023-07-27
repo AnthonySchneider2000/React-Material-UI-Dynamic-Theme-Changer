@@ -1,24 +1,16 @@
-//TODOS: Change Font, move sidebar to own component, add bevel to sidebar
+//TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme, add profile page
 import React, { useState } from "react";
 import {
   CssBaseline,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
   Button,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import InboxIcon from "@mui/icons-material/Inbox";
-import SearchIcon from "@mui/icons-material/Search";
-import { ColorLens } from "@mui/icons-material";
-import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Toaster, toast } from "react-hot-toast";
-import StyledAvatar from "./components/StyledAvatar.js";
 import tinycolor from "tinycolor2";
 import styles from "./styles/app.module.css";
 import MuteSwitch from "./components/MuteSwitch.js";
+import StyledAvatar from "./components/StyledAvatar.js";
+import Sidebar from "./components/Sidebar";
 
 const initialTheme = createTheme({
   palette: {
@@ -105,10 +97,12 @@ const App = () => {
     }
   };
   const createToast = (message) => {
+    let toastBackground = currentTheme.palette.primary.main;
+    let toastColor = currentTheme.palette.primary.contrastText;
     toast.success(message, {
       style: {
-        background: currentTheme.palette.primary.main,
-        color: currentTheme.palette.primary.contrastText,
+        background: toastBackground,
+        color: toastColor,
       },
     });
   };
@@ -136,42 +130,7 @@ const App = () => {
 
         {/* drawer */}
         <div>
-          <Drawer className="drawerContainer" variant="permanent">
-            <List>
-              <ListItem button onClick={handleNewMessages}>
-                <ListItemIcon>
-                  <InboxIcon />
-                </ListItemIcon>
-                <ListItemText primary="New Messages" />
-              </ListItem>
-              <ListItem button>
-                <ListItemIcon>
-                  <SearchIcon />
-                </ListItemIcon>
-                <ListItemText primary="Search" />
-              </ListItem>
-              <ListItem button onClick={handleDarkModeToggle}>
-                <ListItemIcon>
-                  {darkMode ? <Brightness7 /> : <Brightness2 />}{" "}
-                  {/* Use the respective icon based on the mode */}
-                </ListItemIcon>
-                <ListItemText primary={darkMode ? "Light Mode" : "Dark Mode"} />{" "}
-                {/* Change the text based on the mode */}
-              </ListItem>
-              <ListItem button onClick={handleThemeChange}>
-                <ListItemIcon>
-                  <ColorLens />
-                </ListItemIcon>
-                <ListItemText primary="Custom Theme" />
-                <input
-                  style={{ backgroundColor: "transparent", border: "none" }}
-                  type="color"
-                  value={colorPickerColor}
-                  onChange={handleColorChange}
-                />
-              </ListItem>
-            </List>
-          </Drawer>
+          <Sidebar handleThemeChange={handleThemeChange} darkMode={darkMode} handleDarkModeToggle={handleDarkModeToggle} handleNewMessages={handleNewMessages} colorPickerColor={colorPickerColor} handleColorChange={handleColorChange}/>
         </div>
       </ThemeProvider>
     </>
