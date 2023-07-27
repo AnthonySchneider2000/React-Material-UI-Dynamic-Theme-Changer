@@ -1,4 +1,3 @@
-//you may be looking for pages/HomePage.js
 //TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme, add profile page
 import React, { useState } from "react";
 import {
@@ -8,10 +7,10 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import tinycolor from "tinycolor2";
-import styles from "./styles/app.module.css";
-import MuteSwitch from "./components/MuteSwitch.js";
-import StyledAvatar from "./components/StyledAvatar.js";
-import Sidebar from "./components/Sidebar";
+import styles from "../styles/app.module.css";
+import MuteSwitch from "../components/MuteSwitch.js";
+import StyledAvatar from "../components/StyledAvatar.js";
+import Sidebar from "../components/Sidebar";
 
 const initialTheme = createTheme({
   palette: {
@@ -44,7 +43,7 @@ function darkenColor(primaryColor, amount) {
   return darkenedColor;
 }
 
-const App = () => {
+const HomePage = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
@@ -138,4 +137,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default HomePage;
