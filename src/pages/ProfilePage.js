@@ -1,6 +1,13 @@
 //TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme, add profile page
 import React, { useState } from "react";
-import { CssBaseline, Button, Typography } from "@mui/material";
+import {
+  CssBaseline,
+  Button,
+  Typography,
+  Container,
+  Box,
+  Paper,
+} from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
@@ -11,7 +18,7 @@ import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
-
+import UploadedImages from "../components/UploadedImages";
 
 const initialTheme = createTheme({
   palette: {
@@ -49,7 +56,11 @@ const HomePage = () => {
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
+  const handleDrop = (files) => {
+    setUploadedFiles(files);
+  };
   const handleThemeChange = () => {
     const secondaryColor = darkenColor(userInputColor, 16);
     const backgroundColorDefault = lightenColor(userInputColor, 6);
@@ -125,14 +136,29 @@ const HomePage = () => {
         </div>
 
         {/* content */}
-        <div className={styles.centeredContent}>
-          <Link to="/">
-            <Button variant="contained" startIcon={<HomeIcon />}>
-              Home Page
-            </Button>
-          </Link>
-          <CustomDropzone />
-        </div>
+          <Container style={{textAlign: "center"}}>
+            <Box
+              display="flex"
+              flexDirection={"column"}
+              alignItems="center"
+              mt={2}
+            >
+              <Link to="/">
+                <Button variant="contained" startIcon={<HomeIcon />}>
+                  Home Page
+                </Button>
+              </Link>
+              <CustomDropzone onDrop={handleDrop} />
+              <Box mt={2}>
+                {uploadedFiles.length > 0 && (
+                  <Paper elevation={3} style={{ maxHeight: '600px', overflowY: 'auto' }}>
+                    <UploadedImages uploadedFiles={uploadedFiles} />
+                  </Paper>
+                )}
+              </Box>
+            </Box>
+          </Container>
+
 
         {/* mute switch */}
         <div className={styles.muteSwitch}>

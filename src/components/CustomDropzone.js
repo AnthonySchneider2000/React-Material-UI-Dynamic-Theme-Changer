@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { styled } from '@mui/material/styles';
 import { Typography } from '@mui/material';
 import { useDropzone } from 'react-dropzone';
@@ -29,13 +30,23 @@ const StyledDropzone = styled('div')(({ theme }) => ({
 }));
 
 const CustomDropzone = ({ onDrop }) => {
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const [uploadedFiles, setUploadedFiles] = useState([]);
+
+  const handleDrop = (acceptedFiles) => {
+    // Combine the new files with the previously uploaded files
+    setUploadedFiles([...uploadedFiles, ...acceptedFiles]);
+    if (onDrop) {
+      onDrop([...uploadedFiles, ...acceptedFiles]);
+    }
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop: handleDrop });
 
   return (
     <StyledDropzone {...getRootProps()}>
       <input {...getInputProps()} />
-      <Typography variant="body1" align="center"> {/* Align the text to center */}
-        {isDragActive ? 'Drop the files here...' : 'Drag and drop files here, or click to select files'}
+      <Typography variant="body1" align="center">
+        {isDragActive ? 'Drop the images here...' : 'Drag and drop images here,\n or click to select images'}
       </Typography>
     </StyledDropzone>
   );
