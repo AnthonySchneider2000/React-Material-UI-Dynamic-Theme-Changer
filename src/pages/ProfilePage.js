@@ -136,29 +136,31 @@ const HomePage = () => {
         </div>
 
         {/* content */}
-          <Container style={{textAlign: "center"}}>
-            <Box
-              display="flex"
-              flexDirection={"column"}
-              alignItems="center"
-              mt={2}
-            >
-              <Link to="/">
-                <Button variant="contained" startIcon={<HomeIcon />}>
-                  Home Page
-                </Button>
-              </Link>
-              <CustomDropzone onDrop={handleDrop} />
-              <Box mt={2}>
-                {uploadedFiles.length > 0 && (
-                  <Paper elevation={3} style={{ maxHeight: '600px', overflowY: 'auto' }}>
-                    <UploadedImages uploadedFiles={uploadedFiles} />
-                  </Paper>
-                )}
-              </Box>
+        <Container style={{ textAlign: "center" }}>
+          <Box
+            display="flex"
+            flexDirection={"column"}
+            alignItems="center"
+            mt={2}
+          >
+            <Link to="/">
+              <Button variant="contained" startIcon={<HomeIcon />}>
+                Home Page
+              </Button>
+            </Link>
+            <CustomDropzone onDrop={handleDrop} />
+            <Box mt={2}>
+              {uploadedFiles.length > 0 && (
+                <Paper
+                  elevation={3}
+                  style={{ maxHeight: "600px", overflowY: "auto" }}
+                >
+                  <UploadedImages uploadedFiles={uploadedFiles} />
+                </Paper>
+              )}
             </Box>
-          </Container>
-
+          </Box>
+        </Container>
 
         {/* mute switch */}
         <div className={styles.muteSwitch}>
