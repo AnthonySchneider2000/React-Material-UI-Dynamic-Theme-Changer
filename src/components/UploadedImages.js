@@ -1,7 +1,17 @@
 import React from 'react';
 import { Box, Typography, List, ListItem, Divider } from '@mui/material';
+import { styled } from '@mui/material/styles';
 
 const IMAGES_PER_ROW = 3; // Number of images to display per row
+
+const ImageWrapper = styled('img')({
+  maxWidth: '200px',
+  maxHeight: '200px',
+  transition: 'transform 0.3s ease-in-out', // Add a transition for smooth scaling
+  '&:hover': {
+    transform: 'scale(1.1)', // Scale up the image on hover
+  },
+});
 
 const UploadedImages = ({ uploadedFiles }) => {
   const numberOfRows = Math.ceil(uploadedFiles.length / IMAGES_PER_ROW);
@@ -14,10 +24,9 @@ const UploadedImages = ({ uploadedFiles }) => {
       <Box display="flex" alignItems="center">
         {rowImages.map((file, index) => (
           <Box key={index} p={1}>
-            <img
+            <ImageWrapper
               src={URL.createObjectURL(file)} // Convert file to URL
               alt={file.name}
-              style={{ maxWidth: '200px', maxHeight: '200px' }}
             />
           </Box>
         ))}

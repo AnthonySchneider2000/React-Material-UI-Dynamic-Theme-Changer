@@ -20,7 +20,7 @@ const StyledDropzone = styled('div')(({ theme }) => ({
   transition: theme.transitions.create(['border-color', 'background-color', 'transform'], {
     duration: theme.transitions.duration.standard,
   }),
-  minHeight: 200,
+  minHeight: 100,
   cursor: 'pointer',
   '&:hover': {
     borderColor: theme.palette.secondary.main,
