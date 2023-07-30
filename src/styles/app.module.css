@@ -21,10 +21,18 @@
   align-items: center;
 }
 
+
 .centeredContent {
   position: absolute;
-  top: 15%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%); /* Center the div exactly in the middle */
-
+  text-align: center;
+}
+.lowerContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the div exactly in the middle */
+  text-align: center;
 }

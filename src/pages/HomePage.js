@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import {
   CssBaseline,
   Button,
+  Typography,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
@@ -117,6 +118,12 @@ const HomePage = () => {
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
+
+        <div className={styles.heading}>
+          <Typography variant="h1" component="h1" gutterBottom>
+            Home Page
+          </Typography>
+        </div>
 
         {/* content */}
         <div className={styles.centeredContent}>

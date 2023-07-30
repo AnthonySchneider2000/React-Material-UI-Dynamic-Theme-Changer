@@ -10,6 +10,8 @@ import { Link } from "react-router-dom"; // Import the Link component from react
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
+import CustomDropzone from "../components/CustomDropzone";
+
 
 const initialTheme = createTheme({
   palette: {
@@ -129,6 +131,7 @@ const HomePage = () => {
               Home Page
             </Button>
           </Link>
+          <CustomDropzone />
         </div>
 
         {/* mute switch */}
