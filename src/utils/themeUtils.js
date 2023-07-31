@@ -3,6 +3,37 @@
 import { createTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 
+export const initialTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#1976d2", // Initial primary color
+    },
+  },
+});
+
+export const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
+
+export const lightTheme = createTheme({
+  palette: {
+    mode: "light",
+  },
+});
+
+export const toggleDarkMode = (darkMode, setCurrentTheme) => {
+  let newTheme;
+  if (darkMode) {
+    newTheme = lightTheme;
+  } else {
+    newTheme = darkTheme;
+  }
+  setCurrentTheme(newTheme);
+};
+
+
 function lightenColor(primaryColor, amount) {
   const baseColor = tinycolor(primaryColor);
   const lightenedColor = baseColor.lighten(amount).toHexString();

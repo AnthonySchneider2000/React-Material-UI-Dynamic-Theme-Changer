@@ -9,7 +9,7 @@ import {
   Paper,
 } from "@mui/material";
 import HomeIcon from "@mui/icons-material/Home";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import styles from "../styles/app.module.css";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
@@ -18,33 +18,11 @@ import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
 import UploadedImages from "../components/UploadedImages";
-import { handleThemeChange } from "../utils/themeUtils";
-
-const initialTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2", // Initial primary color
-    },
-  },
-});
-
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
-
-const lightTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
-
-
-const initialState = JSON.parse(localStorage.getItem("theme")) || initialTheme;
-
-//read initial state and output to console
-console.log("Initial state: ", initialState);
+import {
+  initialTheme,
+  handleThemeChange,
+  toggleDarkMode,
+} from "../utils/themeUtils";
 
 const HomePage = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
@@ -64,14 +42,9 @@ const HomePage = () => {
 
   const handleDarkModeToggle = () => {
     setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
-    let newTheme;
-    if (darkMode) {
-      newTheme = lightTheme;
-    } else {
-      newTheme = darkTheme;
-    }
-    setCurrentTheme(newTheme); // Update the current theme
+    toggleDarkMode(darkMode, setCurrentTheme);
   };
+  
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
     let toastColor = currentTheme.palette.primary.contrastText;
