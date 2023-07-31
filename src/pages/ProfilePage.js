@@ -17,10 +17,19 @@ import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
 import UploadedImages from "../components/UploadedImages";
+import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
-  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode, colorPickerColor, userInputColor, handleColorChange } = useThemeContext();
+  const {
+    currentTheme,
+    handleThemeChange,
+    isDarkMode,
+    toggleDarkMode,
+    colorPickerColor,
+    userInputColor,
+    handleColorChange,
+  } = useThemeContext();
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const handleDrop = (files) => {
@@ -97,7 +106,7 @@ const HomePage = () => {
 
         {/* drawer */}
         <div>
-        <Sidebar
+          <Sidebar
             handleThemeChange={onThemeChange}
             isDarkMode={isDarkMode}
             handleDarkModeToggle={toggleDarkMode}
@@ -107,6 +116,8 @@ const HomePage = () => {
             currentTheme={currentTheme}
           />
         </div>
+        {/* footer */}
+        <Footer currentTheme={currentTheme} />
       </ThemeProvider>
     </>
   );

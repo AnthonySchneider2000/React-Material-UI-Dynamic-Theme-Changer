@@ -1,6 +1,6 @@
 //TODOS: ANIMATIONS, fill whitespace, further consolidate sidebar, add bevel to sidebar, fix color selector changing theme
 import React from "react";
-import { CssBaseline, Button, Typography } from "@mui/material";
+import { CssBaseline, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
@@ -9,11 +9,20 @@ import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import Example from "../components/TestimonialsCarousel";
+import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
-  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode, colorPickerColor, userInputColor, handleColorChange } = useThemeContext();
-  
+  const {
+    currentTheme,
+    handleThemeChange,
+    isDarkMode,
+    toggleDarkMode,
+    colorPickerColor,
+    userInputColor,
+    handleColorChange,
+  } = useThemeContext();
+
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
     let toastColor = currentTheme.palette.primary.contrastText;
@@ -46,10 +55,7 @@ const HomePage = () => {
           </Typography>
         </div>
 
-        {/* content */}
-        {/* <div className={styles.centeredContent}>
-          <Button variant="contained">Pretty Colors</Button>
-        </div> */}
+        {/* testimonials */}
         <div className={styles.testimonialsContainer}>
           <Example />
         </div>
@@ -69,7 +75,7 @@ const HomePage = () => {
 
         {/* drawer */}
         <div>
-        <Sidebar
+          <Sidebar
             handleThemeChange={onThemeChange}
             isDarkMode={isDarkMode}
             handleDarkModeToggle={toggleDarkMode}
@@ -79,6 +85,8 @@ const HomePage = () => {
             currentTheme={currentTheme}
           />
         </div>
+        {/* footer */}
+        <Footer currentTheme={currentTheme} />
       </ThemeProvider>
     </>
   );
