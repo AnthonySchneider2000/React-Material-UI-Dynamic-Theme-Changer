@@ -1,4 +1,4 @@
-//TODOS: ANIMATIONS, fill whitespace, further consolidate sidebar, add bevel to sidebar, fix color selector changing theme
+//TODOS: ANIMATIONS, fill whitespace, signup page, add bevel to sidebar, fix color selector changing theme
 import React from "react";
 import { CssBaseline, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
