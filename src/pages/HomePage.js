@@ -1,4 +1,4 @@
-//TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme, add profile page
+//TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme
 import React, { useState } from "react";
 import {
   CssBaseline,
