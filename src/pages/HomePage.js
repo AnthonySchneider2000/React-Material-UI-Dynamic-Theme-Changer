@@ -13,13 +13,13 @@ import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import {
-  initialTheme,
+  lightTheme,
   toggleDarkMode,
   handleThemeChange,
 } from "../utils/themeUtils";
 
 const HomePage = () => {
-  const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
+  const [currentTheme, setCurrentTheme] = useState(lightTheme); // Define the state variable for the current theme
   const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color

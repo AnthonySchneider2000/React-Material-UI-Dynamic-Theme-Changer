@@ -3,14 +3,6 @@
 import { createTheme } from "@mui/material/styles";
 import tinycolor from "tinycolor2";
 
-export const initialTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#1976d2", // Initial primary color
-    },
-  },
-});
-
 export const darkTheme = createTheme({
   palette: {
     mode: "dark",
