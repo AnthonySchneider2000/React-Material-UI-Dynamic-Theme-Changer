@@ -7,12 +7,12 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
-import tinycolor from "tinycolor2";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
+import { handleThemeChange } from "../utils/themeUtils";
 
 const initialTheme = createTheme({
   palette: {
@@ -34,16 +34,6 @@ const lightTheme = createTheme({
   },
 });
 
-function lightenColor(primaryColor, amount) {
-  const baseColor = tinycolor(primaryColor);
-  const lightenedColor = baseColor.lighten(amount).toHexString();
-  return lightenedColor;
-}
-function darkenColor(primaryColor, amount) {
-  const baseColor = tinycolor(primaryColor);
-  const darkenedColor = baseColor.darken(amount).toHexString();
-  return darkenedColor;
-}
 
 const HomePage = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
@@ -51,40 +41,7 @@ const HomePage = () => {
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
 
-  const handleThemeChange = () => {
-    const secondaryColor = darkenColor(userInputColor, 16);
-    const backgroundColorDefault = lightenColor(userInputColor, 6);
-    const backgroundColorPaper = lightenColor(userInputColor, 4);
-    const themeMode = colorIsDark(userInputColor) ? "dark" : "light";
-
-    const updatedTheme = createTheme({
-      palette: {
-        primary: {
-          main: userInputColor,
-        },
-        secondary: {
-          main: secondaryColor,
-        },
-        background: {
-          default: backgroundColorDefault,
-          paper: backgroundColorPaper,
-        },
-        mode: themeMode,
-      },
-      // Additional theme customizations...
-    });
-
-    setCurrentTheme(updatedTheme); // Update the current theme
-    setColorPickerColor(darkenColor(userInputColor,6)); // Update the color picker color to contrast with the new primary color
-  };
-
-  const colorIsDark = (hexColor) => {
-    const threshold = 76; // this is the closest match I could find for the default material UI value
-    const baseColor = tinycolor(hexColor);
-    const luminance = baseColor.getLuminance() * 255;
-    return luminance < threshold;
-  };
-
+ 
   const handleColorChange = (event) => {
     setColorPickerColor(event.target.value);
     setUserInputColor(event.target.value);
@@ -110,6 +67,12 @@ const HomePage = () => {
   };
   const handleNewMessages = () => {
     createToast("You have 3 new messages");
+  };
+
+  const onThemeChange = () => {
+    //possibly darken color picker color
+    const updatedTheme = handleThemeChange(userInputColor);
+    setCurrentTheme(updatedTheme);
   };
 
   return (
@@ -142,7 +105,7 @@ const HomePage = () => {
 
         {/* drawer */}
         <div>
-          <Sidebar handleThemeChange={handleThemeChange} darkMode={darkMode} handleDarkModeToggle={handleDarkModeToggle} handleNewMessages={handleNewMessages} colorPickerColor={colorPickerColor} handleColorChange={handleColorChange}/>
+          <Sidebar handleThemeChange={onThemeChange} darkMode={darkMode} handleDarkModeToggle={handleDarkModeToggle} handleNewMessages={handleNewMessages} colorPickerColor={colorPickerColor} handleColorChange={handleColorChange}/>
         </div>
       </ThemeProvider>
     </>

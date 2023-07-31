@@ -11,7 +11,6 @@ import {
 import HomeIcon from "@mui/icons-material/Home";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
-import tinycolor from "tinycolor2";
 import styles from "../styles/app.module.css";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import MuteSwitch from "../components/MuteSwitch.js";
@@ -19,6 +18,7 @@ import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
 import UploadedImages from "../components/UploadedImages";
+import { handleThemeChange } from "../utils/themeUtils";
 
 const initialTheme = createTheme({
   palette: {
@@ -40,16 +40,11 @@ const lightTheme = createTheme({
   },
 });
 
-function lightenColor(primaryColor, amount) {
-  const baseColor = tinycolor(primaryColor);
-  const lightenedColor = baseColor.lighten(amount).toHexString();
-  return lightenedColor;
-}
-function darkenColor(primaryColor, amount) {
-  const baseColor = tinycolor(primaryColor);
-  const darkenedColor = baseColor.darken(amount).toHexString();
-  return darkenedColor;
-}
+
+const initialState = JSON.parse(localStorage.getItem("theme")) || initialTheme;
+
+//read initial state and output to console
+console.log("Initial state: ", initialState);
 
 const HomePage = () => {
   const [currentTheme, setCurrentTheme] = useState(initialTheme); // Define the state variable for the current theme
@@ -61,39 +56,6 @@ const HomePage = () => {
   const handleDrop = (files) => {
     setUploadedFiles(files);
   };
-  const handleThemeChange = () => {
-    const secondaryColor = darkenColor(userInputColor, 16);
-    const backgroundColorDefault = lightenColor(userInputColor, 6);
-    const backgroundColorPaper = lightenColor(userInputColor, 4);
-    const themeMode = colorIsDark(userInputColor) ? "dark" : "light";
-
-    const updatedTheme = createTheme({
-      palette: {
-        primary: {
-          main: userInputColor,
-        },
-        secondary: {
-          main: secondaryColor,
-        },
-        background: {
-          default: backgroundColorDefault,
-          paper: backgroundColorPaper,
-        },
-        mode: themeMode,
-      },
-      // Additional theme customizations...
-    });
-
-    setCurrentTheme(updatedTheme); // Update the current theme
-    setColorPickerColor(darkenColor(userInputColor, 6)); // Update the color picker color to contrast with the new primary color
-  };
-
-  const colorIsDark = (hexColor) => {
-    const threshold = 76; // this is the closest match I could find for the default material UI value
-    const baseColor = tinycolor(hexColor);
-    const luminance = baseColor.getLuminance() * 255;
-    return luminance < threshold;
-  };
 
   const handleColorChange = (event) => {
     setColorPickerColor(event.target.value);
@@ -102,11 +64,13 @@ const HomePage = () => {
 
   const handleDarkModeToggle = () => {
     setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
+    let newTheme;
     if (darkMode) {
-      setCurrentTheme(lightTheme);
+      newTheme = lightTheme;
     } else {
-      setCurrentTheme(darkTheme);
+      newTheme = darkTheme;
     }
+    setCurrentTheme(newTheme); // Update the current theme
   };
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
@@ -122,6 +86,10 @@ const HomePage = () => {
     createToast("You have 3 new messages");
   };
 
+  const onThemeChange = () => {
+    const updatedTheme = handleThemeChange(userInputColor);
+    setCurrentTheme(updatedTheme);
+  };
   return (
     <>
       <Toaster />
@@ -143,7 +111,7 @@ const HomePage = () => {
             alignItems="center"
             mt={2}
           >
-            <Link to="/">
+            <Link to="/" state={{}}>
               <Button variant="contained" startIcon={<HomeIcon />}>
                 Home Page
               </Button>
@@ -175,12 +143,13 @@ const HomePage = () => {
         {/* drawer */}
         <div>
           <Sidebar
-            handleThemeChange={handleThemeChange}
+            handleThemeChange={onThemeChange}
             darkMode={darkMode}
             handleDarkModeToggle={handleDarkModeToggle}
             handleNewMessages={handleNewMessages}
             colorPickerColor={colorPickerColor}
             handleColorChange={handleColorChange}
+            currentTheme={currentTheme}
           />
         </div>
       </ThemeProvider>
