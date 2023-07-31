@@ -17,15 +17,10 @@ import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
 import UploadedImages from "../components/UploadedImages";
-import {
-  lightTheme,
-  handleThemeChange,
-  toggleDarkMode,
-} from "../utils/themeUtils";
+import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
-  const [currentTheme, setCurrentTheme] = useState(lightTheme); // Define the state variable for the current theme
-  const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
+  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode } = useThemeContext();
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -40,8 +35,7 @@ const HomePage = () => {
   };
 
   const handleDarkModeToggle = () => {
-    setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
-    toggleDarkMode(darkMode, setCurrentTheme);
+    toggleDarkMode();
   };
   
   const createToast = (message) => {
@@ -59,8 +53,8 @@ const HomePage = () => {
   };
 
   const onThemeChange = () => {
-    const updatedTheme = handleThemeChange(userInputColor);
-    setCurrentTheme(updatedTheme);
+    //possibly darken color picker color
+    handleThemeChange(userInputColor);
   };
   return (
     <>
@@ -114,9 +108,9 @@ const HomePage = () => {
 
         {/* drawer */}
         <div>
-          <Sidebar
+        <Sidebar
             handleThemeChange={onThemeChange}
-            darkMode={darkMode}
+            isDarkMode={isDarkMode}
             handleDarkModeToggle={handleDarkModeToggle}
             handleNewMessages={handleNewMessages}
             colorPickerColor={colorPickerColor}

@@ -13,11 +13,12 @@ import { Brightness2, Brightness7 } from "@mui/icons-material";
 
 const Sidebar = ({
   handleThemeChange,
-  darkMode,
   handleDarkModeToggle,
+  isDarkMode,
   handleNewMessages,
   colorPickerColor,
   handleColorChange,
+  currentTheme,
 }) => {
   return (
     <Drawer className="drawerContainer" variant="permanent">
@@ -35,13 +36,15 @@ const Sidebar = ({
           <ListItemText primary="Search" />
         </ListItem>
         <ListItem button onClick={handleDarkModeToggle}>
-          <ListItemIcon>
-            {darkMode ? <Brightness7 /> : <Brightness2 />}{" "}
-            {/* Use the respective icon based on the mode */}
-          </ListItemIcon>
-          <ListItemText primary={darkMode ? "Light Mode" : "Dark Mode"} />{" "}
-          {/* Change the text based on the mode */}
-        </ListItem>
+        <ListItemIcon>
+          {/* {currentTheme.palette.mode === "light" ? <Brightness2 /> : <Brightness7 />} */}
+          
+          {/* Use the respective icon based on the theme type */}
+          {isDarkMode ? <Brightness7 /> : <Brightness2 />}
+        </ListItemIcon>
+        {/* <ListItemText primary={currentTheme.palette.mode === "light" ? "Dark Mode" : "Light Mode"} /> */}
+        <ListItemText primary={isDarkMode ? "Light Mode" : "Dark Mode"} />
+      </ListItem>
         <ListItem button onClick={handleThemeChange}>
           <ListItemIcon>
             <ColorLens />

@@ -1,17 +1,15 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import HomePage from './pages/HomePage';
-import ProfilePage from './pages/ProfilePage';
-import reportWebVitals from './reportWebVitals';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import '@fontsource/roboto/300.css'; // Import the font for font-weight: 300
-import '@fontsource/roboto/400.css'; // Import the font for font-weight: 400
-import '@fontsource/roboto/500.css'; // Import the font for font-weight: 500
-import '@fontsource/roboto/700.css'; // Import the font for font-weight: 700
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import HomePage from "./pages/HomePage";
+import ProfilePage from "./pages/ProfilePage";
+import reportWebVitals from "./reportWebVitals";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "@fontsource/roboto/300.css"; // Import the font for font-weight: 300
+import "@fontsource/roboto/400.css"; // Import the font for font-weight: 400
+import "@fontsource/roboto/500.css"; // Import the font for font-weight: 500
+import "@fontsource/roboto/700.css"; // Import the font for font-weight: 700
+import { ThemeContextProvider } from "./utils/ThemeContext";
 
 const router = createBrowserRouter([
   {
@@ -24,10 +22,12 @@ const router = createBrowserRouter([
   },
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ThemeContextProvider>
+      <RouterProvider router={router} />
+    </ThemeContextProvider>
   </React.StrictMode>
 );
 

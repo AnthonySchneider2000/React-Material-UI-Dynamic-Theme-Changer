@@ -1,10 +1,6 @@
 //TODOS: further consolidate sidebar, add bevel to sidebar, fix color selector changing theme
 import React, { useState } from "react";
-import {
-  CssBaseline,
-  Button,
-  Typography,
-} from "@mui/material";
+import { CssBaseline, Button, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
@@ -12,27 +8,20 @@ import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
-import {
-  lightTheme,
-  toggleDarkMode,
-  handleThemeChange,
-} from "../utils/themeUtils";
+import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
-  const [currentTheme, setCurrentTheme] = useState(lightTheme); // Define the state variable for the current theme
-  const [darkMode, setDarkMode] = useState(false); // Track dark mode state, false = light mode, true = dark mode
+  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode } = useThemeContext();
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
 
- 
   const handleColorChange = (event) => {
     setColorPickerColor(event.target.value);
     setUserInputColor(event.target.value);
   };
 
   const handleDarkModeToggle = () => {
-    setDarkMode((prevMode) => !prevMode); // Toggle the dark mode state
-    toggleDarkMode(darkMode, setCurrentTheme);
+    toggleDarkMode();
   };
 
   const createToast = (message) => {
@@ -51,8 +40,7 @@ const HomePage = () => {
 
   const onThemeChange = () => {
     //possibly darken color picker color
-    const updatedTheme = handleThemeChange(userInputColor);
-    setCurrentTheme(updatedTheme);
+    handleThemeChange(userInputColor);
   };
 
   return (
@@ -77,15 +65,26 @@ const HomePage = () => {
           <MuteSwitch />
         </div>
         {/* avatar */}
-        <Link to="/profile" style={{ textDecoration: "none", color: "inherit" }}>
-        <div className={styles.avatar}>
-          <StyledAvatar>TS</StyledAvatar>
-        </div>
+        <Link
+          to="/profile"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          <div className={styles.avatar}>
+            <StyledAvatar>TS</StyledAvatar>
+          </div>
         </Link>
 
         {/* drawer */}
         <div>
-          <Sidebar handleThemeChange={onThemeChange} darkMode={darkMode} handleDarkModeToggle={handleDarkModeToggle} handleNewMessages={handleNewMessages} colorPickerColor={colorPickerColor} handleColorChange={handleColorChange}/>
+        <Sidebar
+            handleThemeChange={onThemeChange}
+            isDarkMode={isDarkMode}
+            handleDarkModeToggle={handleDarkModeToggle}
+            handleNewMessages={handleNewMessages}
+            colorPickerColor={colorPickerColor}
+            handleColorChange={handleColorChange}
+            currentTheme={currentTheme}
+          />
         </div>
       </ThemeProvider>
     </>
