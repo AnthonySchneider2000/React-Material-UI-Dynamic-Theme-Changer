@@ -12,9 +12,7 @@ import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
   const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode, colorPickerColor, userInputColor, handleColorChange } = useThemeContext();
-
-
-
+  
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
     let toastColor = currentTheme.palette.primary.contrastText;
