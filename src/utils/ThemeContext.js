@@ -44,6 +44,8 @@ export const colorIsDark = (hexColor) => {
 export const ThemeContextProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(lightTheme);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
+  const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
 
   const handleThemeChange = (color) => {
     const secondaryColor = darkenColor(color, 16);
@@ -78,9 +80,23 @@ export const ThemeContextProvider = ({ children }) => {
     }
   };
 
+  const handleColorChange = (event) => {
+    setColorPickerColor(event.target.value);
+    setUserInputColor(event.target.value);
+    //possibly darken color picker color
+  };
+
   return (
     <ThemeContext.Provider
-      value={{ currentTheme, handleThemeChange, isDarkMode, toggleDarkMode }}
+      value={{
+        currentTheme,
+        handleThemeChange,
+        isDarkMode,
+        toggleDarkMode,
+        colorPickerColor,
+        userInputColor,
+        handleColorChange,
+      }}
     >
       {children}
     </ThemeContext.Provider>

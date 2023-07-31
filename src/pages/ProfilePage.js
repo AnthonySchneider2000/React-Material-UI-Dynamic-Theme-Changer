@@ -20,20 +20,13 @@ import UploadedImages from "../components/UploadedImages";
 import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
-  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode } = useThemeContext();
-  const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
-  const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
+  const { currentTheme, handleThemeChange, isDarkMode, toggleDarkMode, colorPickerColor, userInputColor, handleColorChange } = useThemeContext();
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const handleDrop = (files) => {
     setUploadedFiles(files);
   };
 
-  const handleColorChange = (event) => {
-    setColorPickerColor(event.target.value);
-    setUserInputColor(event.target.value);
-  };
-  
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
     let toastColor = currentTheme.palette.primary.contrastText;
