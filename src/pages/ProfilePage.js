@@ -33,10 +33,6 @@ const HomePage = () => {
     setColorPickerColor(event.target.value);
     setUserInputColor(event.target.value);
   };
-
-  const handleDarkModeToggle = () => {
-    toggleDarkMode();
-  };
   
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
@@ -111,7 +107,7 @@ const HomePage = () => {
         <Sidebar
             handleThemeChange={onThemeChange}
             isDarkMode={isDarkMode}
-            handleDarkModeToggle={handleDarkModeToggle}
+            handleDarkModeToggle={toggleDarkMode}
             handleNewMessages={handleNewMessages}
             colorPickerColor={colorPickerColor}
             handleColorChange={handleColorChange}
