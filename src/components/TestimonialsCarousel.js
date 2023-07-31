@@ -17,6 +17,10 @@ const StyledImageContainer = styled("div")({
 const StyledPaper = styled(Paper)({
   textAlign: "center",
   // Add any additional styles for the Paper component if needed
+    "&:hover": {
+    boxShadow: "0 0 10px 3px",
+    },
+
 });
 
 const StyledNextButton = styled(Button)({
