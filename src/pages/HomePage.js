@@ -8,6 +8,7 @@ import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
+import Example from "../components/TestimonialsCarousel";
 import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
@@ -46,8 +47,11 @@ const HomePage = () => {
         </div>
 
         {/* content */}
-        <div className={styles.centeredContent}>
+        {/* <div className={styles.centeredContent}>
           <Button variant="contained">Pretty Colors</Button>
+        </div> */}
+        <div className={styles.testimonialsContainer}>
+          <Example />
         </div>
         {/* mute switch */}
         <div className={styles.muteSwitch}>

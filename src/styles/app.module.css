@@ -36,3 +36,9 @@
   transform: translate(-50%, -50%); /* Center the div exactly in the middle */
   text-align: center;
 }
+
+.testimonialsContainer{
+  max-width: 800px; /* Adjust the width as per your design */
+  margin: 0 auto;
+  padding: 20px;
+}
