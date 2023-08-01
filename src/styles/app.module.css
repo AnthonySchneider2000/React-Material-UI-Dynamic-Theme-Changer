@@ -42,3 +42,8 @@
   margin: 0 auto;
   padding: 20px;
 }
+
+.saveButton{
+  margin: 10px auto;
+  display: block;
+}
