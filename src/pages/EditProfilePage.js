@@ -1,5 +1,5 @@
 import React from "react";
-import { CssBaseline, Typography, Button } from "@mui/material";
+import { CssBaseline, Typography, Button, TextField } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
@@ -61,6 +61,16 @@ const EditProfilePage = () => {
 
         {/* edit user info */}
         <div className={styles.centeredContent}>
+          {/* first name entry */}
+          <Typography gutterBottom>First Name</Typography>
+          <TextField
+            id="outlined-basic"
+            label="First Name"
+            variant="outlined"
+          />
+          {/* last name entry */}
+          <Typography gutterBottom>Last Name</Typography>
+          <TextField id="outlined-basic" label="Last Name" variant="outlined" />
           {/* date of birth entry */}
           <Typography gutterBottom>Date of Birth</Typography>
           <DatePicker />
