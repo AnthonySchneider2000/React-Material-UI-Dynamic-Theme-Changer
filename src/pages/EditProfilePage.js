@@ -10,6 +10,8 @@ import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
 import { DatePicker } from "@mui/x-date-pickers";
+import MuiPhoneNumber from "material-ui-phone-number";
+
 
 const EditProfilePage = () => {
   const {
@@ -41,6 +43,10 @@ const EditProfilePage = () => {
     handleThemeChange(userInputColor);
   };
 
+    const handleOnChange = (value) => {
+    console.log(value);
+    };
+
   return (
     <>
       <Toaster />
@@ -48,16 +54,22 @@ const EditProfilePage = () => {
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
 
+        {/* header */}
         <div className={styles.heading}>
           <Typography variant="h1" component="h1" gutterBottom>
             Edit Profile
           </Typography>
         </div>
 
+        {/* edit user info */}
         <div className={styles.centeredContent}>
           {/* date of birth entry */}
           <Typography gutterBottom>Date of Birth</Typography>
           <DatePicker />
+          {/* phone number entry */}
+          <Typography gutterBottom>Phone Number</Typography>
+          <MuiPhoneNumber defaultCountry={'us'} onChange={handleOnChange}/>,
+
         </div>
 
         {/* mute switch */}
