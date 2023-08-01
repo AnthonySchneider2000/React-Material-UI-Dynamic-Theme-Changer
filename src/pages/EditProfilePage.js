@@ -9,6 +9,7 @@ import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
+import { DatePicker } from "@mui/x-date-pickers";
 
 const EditProfilePage = () => {
   const {
@@ -51,6 +52,12 @@ const EditProfilePage = () => {
           <Typography variant="h1" component="h1" gutterBottom>
             Edit Profile
           </Typography>
+        </div>
+
+        <div className={styles.centeredContent}>
+          {/* date of birth entry */}
+          <Typography gutterBottom>Date of Birth</Typography>
+          <DatePicker />
         </div>
 
         {/* mute switch */}

@@ -11,6 +11,8 @@ import "@fontsource/roboto/400.css"; // Import the font for font-weight: 400
 import "@fontsource/roboto/500.css"; // Import the font for font-weight: 500
 import "@fontsource/roboto/700.css"; // Import the font for font-weight: 700
 import { ThemeContextProvider } from "./utils/ThemeContext";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 
 const router = createBrowserRouter([
   {
@@ -24,14 +26,16 @@ const router = createBrowserRouter([
   {
     path: "edit-profile",
     element: <EditProfilePage />,
-  }
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <ThemeContextProvider>
-      <RouterProvider router={router} />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <RouterProvider router={router} />
+      </LocalizationProvider>
     </ThemeContextProvider>
   </React.StrictMode>
 );
