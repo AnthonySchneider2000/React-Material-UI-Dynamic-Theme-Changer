@@ -66,7 +66,7 @@ const EditProfilePage = () => {
           <DatePicker />
           {/* phone number entry */}
           <Typography gutterBottom>Phone Number</Typography>
-          <MuiPhoneNumber defaultCountry={"us"} />
+          <MuiPhoneNumber variant="outlined" defaultCountry={"us"} />
 
           {/* save button */}
           <Button
