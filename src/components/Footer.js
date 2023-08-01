@@ -18,7 +18,7 @@ const Footer = ({ currentTheme }) => {
       }}
     >
       <Typography variant="body2">
-        © {new Date().getFullYear()} Your Company. All rights reserved.
+        © {new Date().getFullYear()} AGSoftware. All rights reserved.
       </Typography>
     </Paper>
   );
