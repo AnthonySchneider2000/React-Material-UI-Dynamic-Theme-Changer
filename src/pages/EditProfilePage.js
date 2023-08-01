@@ -43,10 +43,6 @@ const EditProfilePage = () => {
     handleThemeChange(userInputColor);
   };
 
-    const handleOnChange = (value) => {
-    console.log(value);
-    };
-
   return (
     <>
       <Toaster />
@@ -68,7 +64,7 @@ const EditProfilePage = () => {
           <DatePicker />
           {/* phone number entry */}
           <Typography gutterBottom>Phone Number</Typography>
-          <MuiPhoneNumber defaultCountry={'us'} onChange={handleOnChange}/>,
+          <MuiPhoneNumber defaultCountry={'us'}/>
 
         </div>
 
