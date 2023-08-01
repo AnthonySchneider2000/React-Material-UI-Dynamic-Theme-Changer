@@ -58,7 +58,8 @@ function TrailsCarousel(props) {
   return (
     // customise the nav button to be in the middle of the image, not the whole carousel
     // below is an absolutely abysmal way of doing it, but it works
-    <Carousel navButtonsWrapperProps={{ style: { top: "-15%"} }}> 
+    // if you change the image height, this needs to be changed too
+    <Carousel navButtonsWrapperProps={{ style: { top: "-13%"} }}> 
       {items.map((item, i) => (
         <Item key={i} item={item} />
       ))}
