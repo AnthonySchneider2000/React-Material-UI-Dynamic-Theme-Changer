@@ -8,7 +8,7 @@ import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
 import Sidebar from "../components/Sidebar";
-import Example from "../components/TestimonialsCarousel";
+import TrailsCarousel from "../components/TrailsCarousel";
 import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
 
@@ -56,8 +56,8 @@ const HomePage = () => {
         </div>
 
         {/* testimonials */}
-        <div className={styles.testimonialsContainer}>
-          <Example />
+        <div className={styles.carouselContainer}>
+          <TrailsCarousel />
         </div>
         {/* mute switch */}
         <div className={styles.muteSwitch}>

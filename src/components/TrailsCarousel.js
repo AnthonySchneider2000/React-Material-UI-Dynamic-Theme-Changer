@@ -4,7 +4,7 @@ import { Paper, Button, styled } from "@mui/material";
 
 const StyledImageContainer = styled("div")({
   width: 760, // Set the desired width
-  height: 500, // Set the desired height
+  height: 760, // Set the desired height
   overflow: "hidden",
   "& img": {
     width: "100%",
@@ -23,13 +23,7 @@ const StyledPaper = styled(Paper)({
 
 });
 
-const StyledNextButton = styled(Button)({
-  // Custom styles for the "Next" button
-  // Adjust the height as per your preference
-  top: "40px", // Set the desired height for the next button
-});
-
-function Example(props) {
+function TrailsCarousel(props) {
   var items = [
     {
       name: "Lakeview Serenity Trail",
@@ -62,7 +56,9 @@ function Example(props) {
   ];
 
   return (
-    <Carousel NextButton={StyledNextButton}>
+    // customise the nav button to be in the middle of the image, not the whole carousel
+    // below is an absolutely abysmal way of doing it, but it works
+    <Carousel navButtonsWrapperProps={{ style: { top: "-15%"} }}> 
       {items.map((item, i) => (
         <Item key={i} item={item} />
       ))}
@@ -85,4 +81,4 @@ function Item(props) {
   );
 }
 
-export default Example;
+export default TrailsCarousel;
