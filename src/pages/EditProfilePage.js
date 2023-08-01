@@ -76,7 +76,6 @@ const EditProfilePage = () => {
             handleNewMessages={handleNewMessages}
             colorPickerColor={colorPickerColor}
             handleColorChange={handleColorChange}
-            currentTheme={currentTheme}
           />
         </div>
         {/* footer */}

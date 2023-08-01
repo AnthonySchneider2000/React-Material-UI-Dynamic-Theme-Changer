@@ -21,7 +21,6 @@ const Sidebar = ({
   handleNewMessages,
   colorPickerColor,
   handleColorChange,
-  currentTheme,
 }) => {
   return (
     <Drawer className="drawerContainer" variant="permanent">
@@ -46,12 +45,9 @@ const Sidebar = ({
         </ListItem>
         <ListItem button onClick={handleDarkModeToggle}>
         <ListItemIcon>
-          {/* {currentTheme.palette.mode === "light" ? <Brightness2 /> : <Brightness7 />} */}
-          
           {/* Use the respective icon based on the theme type */}
           {isDarkMode ? <Brightness7 /> : <Brightness2 />}
         </ListItemIcon>
-        {/* <ListItemText primary={currentTheme.palette.mode === "light" ? "Dark Mode" : "Light Mode"} /> */}
         <ListItemText primary={isDarkMode ? "Light Mode" : "Dark Mode"} />
       </ListItem>
         <ListItem button onClick={handleThemeChange}>
