@@ -31,6 +31,12 @@ const Sidebar = ({
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItem>
+        <ListItem button component={Link} to="/dashboard">
+          <ListItemIcon>
+            <HomeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
         <ListItem button onClick={handleNewMessages}>
           <ListItemIcon>
             <InboxIcon />

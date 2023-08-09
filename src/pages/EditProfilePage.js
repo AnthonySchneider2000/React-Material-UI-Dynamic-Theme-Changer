@@ -62,22 +62,31 @@ const EditProfilePage = () => {
         {/* edit user info */}
         <div className={styles.centeredContent}>
           {/* first name entry */}
-          <Typography gutterBottom>First Name</Typography>
           <TextField
             id="outlined-basic"
             label="First Name"
             variant="outlined"
+            className={styles.inputField}
           />
           {/* last name entry */}
-          <Typography gutterBottom>Last Name</Typography>
-          <TextField id="outlined-basic" label="Last Name" variant="outlined" />
+          <TextField
+            id="outlined-basic"
+            label="Last Name"
+            variant="outlined"
+            className={styles.inputField}
+          />
           {/* date of birth entry */}
-          <Typography gutterBottom>Date of Birth</Typography>
-          <DatePicker />
+          <DatePicker label="Date of Birth" className={styles.inputField} />
           {/* phone number entry */}
-          <Typography gutterBottom>Phone Number</Typography>
-          <MuiPhoneNumber variant="outlined" defaultCountry={"us"} />
+          <MuiPhoneNumber
+            variant="outlined"
+            label="Phone Number"
+            defaultCountry={"us"}
+            className={styles.inputField}
+          />
 
+        </div>
+          <div className={styles.saveButtonContainer}>
           {/* save button */}
           <Button
             variant="contained"
@@ -87,7 +96,8 @@ const EditProfilePage = () => {
           >
             Save
           </Button>
-        </div>
+
+          </div>
 
         {/* mute switch */}
         <div className={styles.muteSwitch}>

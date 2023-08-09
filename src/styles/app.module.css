@@ -42,8 +42,19 @@
   margin: 0 auto;
   padding: 20px;
 }
-
+.saveButtonContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+}
 .saveButton{
   margin: 10px auto;
+  display: block;
+}
+
+.inputField{
+  width: 500px;
+  margin-bottom: 150px;
   display: block;
 }
