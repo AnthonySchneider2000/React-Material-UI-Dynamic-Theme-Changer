@@ -26,7 +26,7 @@ export default function Dashboard() {
     <ThemeProvider theme={currentTheme}>
         <CssBaseline />
     <Box sx={{ display: "flex" }}>
-      <AppBarComponent open={open} toggleDrawer={toggleDrawer} title={"Dashboard"} />
+      <AppBarComponent open={open} toggleDrawer={toggleDrawer} title="Dashboard" />
       <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
       <Box
         component="main"

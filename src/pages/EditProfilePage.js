@@ -1,27 +1,26 @@
 import React from "react";
 import { CssBaseline, Typography, Button, TextField } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Toaster, toast } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
-import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
 import { DatePicker } from "@mui/x-date-pickers";
 import MuiPhoneNumber from "material-ui-phone-number";
+import AppBarComponent from "../components/AppBarComponent";
+import CollapseableSidebar from "../components/CollapseableSidebar";
 
 const EditProfilePage = () => {
   const {
-    currentTheme,
-    handleThemeChange,
-    isDarkMode,
-    toggleDarkMode,
-    colorPickerColor,
-    userInputColor,
-    handleColorChange,
+    currentTheme
   } = useThemeContext();
+  const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
 
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
@@ -33,24 +32,19 @@ const EditProfilePage = () => {
       },
     });
   };
-  const handleNewMessages = () => {
-    createToast("You have 3 new messages");
-  };
   const handleSaveSettings = () => {
     createToast("Settings Saved");
   };
 
-  const onThemeChange = () => {
-    //possibly darken color picker color
-    handleThemeChange(userInputColor);
-  };
 
   return (
     <>
-      <Toaster />
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
+        {/* drawer */}
+        <AppBarComponent open={open} toggleDrawer={toggleDrawer} title="Edit Profile" />
+        <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
 
         {/* header */}
         <div className={styles.heading}>
@@ -113,17 +107,7 @@ const EditProfilePage = () => {
           </div>
         </Link>
 
-        {/* drawer */}
-        <div>
-          <Sidebar
-            handleThemeChange={onThemeChange}
-            isDarkMode={isDarkMode}
-            handleDarkModeToggle={toggleDarkMode}
-            handleNewMessages={handleNewMessages}
-            colorPickerColor={colorPickerColor}
-            handleColorChange={handleColorChange}
-          />
-        </div>
+        
         {/* footer */}
         <Footer currentTheme={currentTheme} />
       </ThemeProvider>

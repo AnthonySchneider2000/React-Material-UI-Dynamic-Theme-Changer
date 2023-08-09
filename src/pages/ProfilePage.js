@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import { ThemeProvider } from "@mui/material/styles";
-import { Toaster, toast } from "react-hot-toast";
 import styles from "../styles/app.module.css";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import MuteSwitch from "../components/MuteSwitch.js";
@@ -38,12 +37,11 @@ const HomePage = () => {
   
   return (
     <>
-      <Toaster />
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
         {/* drawer */}
-        <AppBarComponent open={open} toggleDrawer={toggleDrawer} />
+        <AppBarComponent open={open} toggleDrawer={toggleDrawer} title="Profile"/>
         <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
         {/* heading */}
         <div className={styles.heading}>

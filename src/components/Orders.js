@@ -6,6 +6,7 @@ import TableCell from '@mui/material/TableCell';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Title from './Title';
+import { useTheme } from '@mui/material';
 
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
@@ -53,6 +54,7 @@ function preventDefault(event) {
 }
 
 export default function Orders() {
+  const theme = useTheme();
   return (
     <React.Fragment>
       <Title>Recent Orders</Title>
@@ -78,7 +80,7 @@ export default function Orders() {
           ))}
         </TableBody>
       </Table>
-      <Link color="primary" href="#" onClick={preventDefault} sx={{ mt: 3 }}>
+      <Link color={theme.palette.text.primary} href="#" onClick={preventDefault} sx={{ mt: 3 }}>
         See more orders
       </Link>
     </React.Fragment>

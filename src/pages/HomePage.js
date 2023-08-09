@@ -2,51 +2,32 @@
 import React from "react";
 import { CssBaseline, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
-import Sidebar from "../components/Sidebar";
 import TrailsCarousel from "../components/TrailsCarousel";
 import Footer from "../components/Footer";
 import { useThemeContext } from "../utils/ThemeContext";
+import AppBarComponent from "../components/AppBarComponent";
+import CollapseableSidebar from "../components/CollapseableSidebar";
 
 const HomePage = () => {
   const {
-    currentTheme,
-    handleThemeChange,
-    isDarkMode,
-    toggleDarkMode,
-    colorPickerColor,
-    userInputColor,
-    handleColorChange,
+    currentTheme
   } = useThemeContext();
-
-  const createToast = (message) => {
-    let toastBackground = currentTheme.palette.primary.main;
-    let toastColor = currentTheme.palette.primary.contrastText;
-    toast.success(message, {
-      style: {
-        background: toastBackground,
-        color: toastColor,
-      },
-    });
+  const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
-  const handleNewMessages = () => {
-    createToast("You have 3 new messages");
-  };
-
-  const onThemeChange = () => {
-    //possibly darken color picker color
-    handleThemeChange(userInputColor);
-  };
+  
 
   return (
     <>
-      <Toaster />
-
       <ThemeProvider theme={currentTheme}>
+        {/* drawer */}
+        <AppBarComponent open={open} toggleDrawer={toggleDrawer} title="Home Page" />
+        <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
         <CssBaseline />
 
         <div className={styles.heading}>
@@ -73,17 +54,7 @@ const HomePage = () => {
           </div>
         </Link>
 
-        {/* drawer */}
-        <div>
-          <Sidebar
-            handleThemeChange={onThemeChange}
-            isDarkMode={isDarkMode}
-            handleDarkModeToggle={toggleDarkMode}
-            handleNewMessages={handleNewMessages}
-            colorPickerColor={colorPickerColor}
-            handleColorChange={handleColorChange}
-          />
-        </div>
+        
         {/* footer */}
         <Footer currentTheme={currentTheme} />
       </ThemeProvider>
