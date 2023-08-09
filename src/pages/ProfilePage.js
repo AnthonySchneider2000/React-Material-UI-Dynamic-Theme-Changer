@@ -14,52 +14,37 @@ import styles from "../styles/app.module.css";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import MuteSwitch from "../components/MuteSwitch.js";
 import StyledAvatar from "../components/StyledAvatar.js";
-import Sidebar from "../components/Sidebar";
 import CustomDropzone from "../components/CustomDropzone";
 import UploadedImages from "../components/UploadedImages";
 import Footer from "../components/Footer";
+import CollapseableSidebar from "../components/CollapseableSidebar";
+import AppBarComponent from "../components/AppBarComponent";
 import { useThemeContext } from "../utils/ThemeContext";
 
 const HomePage = () => {
   const {
-    currentTheme,
-    handleThemeChange,
-    isDarkMode,
-    toggleDarkMode,
-    colorPickerColor,
-    userInputColor,
-    handleColorChange,
+    currentTheme
   } = useThemeContext();
+  const [open, setOpen] = React.useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
   const [uploadedFiles, setUploadedFiles] = useState([]);
 
   const handleDrop = (files) => {
     setUploadedFiles(files);
   };
 
-  const createToast = (message) => {
-    let toastBackground = currentTheme.palette.primary.main;
-    let toastColor = currentTheme.palette.primary.contrastText;
-    toast.success(message, {
-      style: {
-        background: toastBackground,
-        color: toastColor,
-      },
-    });
-  };
-  const handleNewMessages = () => {
-    createToast("You have 3 new messages");
-  };
-
-  const onThemeChange = () => {
-    //possibly darken color picker color
-    handleThemeChange(userInputColor);
-  };
+  
   return (
     <>
       <Toaster />
 
       <ThemeProvider theme={currentTheme}>
         <CssBaseline />
+        {/* drawer */}
+        <AppBarComponent open={open} toggleDrawer={toggleDrawer} />
+        <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
         {/* heading */}
         <div className={styles.heading}>
           <Typography variant="h1" component="h1" gutterBottom>
@@ -77,7 +62,13 @@ const HomePage = () => {
           >
             {/* link to edit profile */}
             <Link to="/edit-profile" state={{}}>
-              <Button variant="contained" style={{ margin: "10px"}} startIcon={<ManageAccountsIcon />}>Edit Profile</Button>
+              <Button
+                variant="contained"
+                style={{ margin: "10px" }}
+                startIcon={<ManageAccountsIcon />}
+              >
+                Edit Profile
+              </Button>
             </Link>
             <CustomDropzone onDrop={handleDrop} />
             <Box mt={2}>
@@ -103,17 +94,6 @@ const HomePage = () => {
           <StyledAvatar>TS</StyledAvatar>
         </div>
 
-        {/* drawer */}
-        <div>
-          <Sidebar
-            handleThemeChange={onThemeChange}
-            isDarkMode={isDarkMode}
-            handleDarkModeToggle={toggleDarkMode}
-            handleNewMessages={handleNewMessages}
-            colorPickerColor={colorPickerColor}
-            handleColorChange={handleColorChange}
-          />
-        </div>
         {/* footer */}
         <Footer currentTheme={currentTheme} />
       </ThemeProvider>

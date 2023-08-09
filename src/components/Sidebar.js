@@ -9,6 +9,7 @@ import {
 import InboxIcon from "@mui/icons-material/Inbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { ColorLens } from "@mui/icons-material";
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import { Brightness2, Brightness7 } from "@mui/icons-material";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import HomeIcon from "@mui/icons-material/Home";
@@ -33,7 +34,7 @@ const Sidebar = ({
         </ListItem>
         <ListItem button component={Link} to="/dashboard">
           <ListItemIcon>
-            <HomeIcon />
+            <DashboardIcon />
           </ListItemIcon>
           <ListItemText primary="Dashboard" />
         </ListItem>
