@@ -61,7 +61,7 @@ export default function Chart() {
             isAnimationActive={false}
             type="monotone"
             dataKey="amount"
-            stroke={theme.palette.primary.main}
+            stroke={theme.palette.text.primary}
             dot={false}
           />
         </LineChart>
