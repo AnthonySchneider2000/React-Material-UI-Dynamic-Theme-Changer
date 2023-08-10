@@ -58,50 +58,61 @@ const EditProfilePage = () => {
               because the actual toolbar is displayed from AppBarComponent*/}
           <Toolbar sx={{ height: 100 }} />
           {/* edit user info */}
-          <Grid container spacing={3} direction="column" justifyContent="center" alignItems="center">
-            <Grid item xs={12} md={8} lg={9}>
-              {/* first name entry */}
-              <TextField
-                id="outlined-basic"
-                label="First Name"
-                variant="outlined"
-                className={styles.inputField}
-              />
+          <Paper elevation={10} sx={{ width: "90%", margin: "0 auto 20px" }}>
+            <Grid
+              container
+              spacing={3}
+              direction="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item xs={12} md={8} lg={9}>
+                {/* first name entry */}
+                <TextField
+                  id="outlined-basic"
+                  label="First Name"
+                  variant="outlined"
+                  className={styles.inputField}
+                />
+              </Grid>
+              <Grid item xs={12} md={8} lg={9}>
+                {/* last name entry */}
+                <TextField
+                  id="outlined-basic"
+                  label="Last Name"
+                  variant="outlined"
+                  className={styles.inputField}
+                />
+              </Grid>
+              <Grid item xs={12} md={8} lg={9}>
+                {/* date of birth entry */}
+                <DatePicker
+                  label="Date of Birth"
+                  className={styles.inputField}
+                />
+              </Grid>
+              <Grid item xs={12} md={8} lg={9}>
+                {/* phone number entry */}
+                <MuiPhoneNumber
+                  variant="outlined"
+                  label="Phone Number"
+                  defaultCountry={"us"}
+                  className={styles.inputField}
+                />
+              </Grid>
+              <Grid item xs={12} md={8} lg={9}>
+                {/* save button */}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSaveSettings}
+                  sx={{ margin: "0 auto 20px" }}
+                >
+                  Save
+                </Button>
+              </Grid>
             </Grid>
-            <Grid item xs={12} md={8} lg={9}>
-              {/* last name entry */}
-              <TextField
-                id="outlined-basic"
-                label="Last Name"
-                variant="outlined"
-                className={styles.inputField}
-              />
-            </Grid>
-            <Grid item xs={12} md={8} lg={9}>
-              {/* date of birth entry */}
-              <DatePicker label="Date of Birth" className={styles.inputField} />
-            </Grid>
-            <Grid item xs={12} md={8} lg={9}>
-              {/* phone number entry */}
-              <MuiPhoneNumber
-                variant="outlined"
-                label="Phone Number"
-                defaultCountry={"us"}
-                className={styles.inputField}
-              />
-            </Grid>
-            <Grid item xs={12} md={8} lg={9}>
-              {/* save button */}
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSaveSettings}
-                className={styles.saveButton}
-              >
-                Save
-              </Button>
-            </Grid>
-          </Grid>
+          </Paper>
         </Box>
         {/* footer */}
         <Footer currentTheme={currentTheme} />
