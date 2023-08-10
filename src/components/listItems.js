@@ -5,7 +5,7 @@ import InboxIcon from "@mui/icons-material/Inbox";
 import SearchIcon from "@mui/icons-material/Search";
 import { ColorLens } from "@mui/icons-material";
 import { Brightness2, Brightness7 } from "@mui/icons-material";
-import { ListItem } from '@mui/material';
+import { ListItem, TextField } from '@mui/material';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 
 import ListItemButton from '@mui/material/ListItemButton';
@@ -46,11 +46,11 @@ export const mainListItems = ({ handleNewMessages, onThemeChange, isDarkMode, to
           </ListItemIcon>
           <ListItemText primary="New Messages" />
         </ListItem>
-        <ListItem button>
+        <ListItem button sx={{maxHeight:"50px"}}>
           <ListItemIcon>
             <SearchIcon />
           </ListItemIcon>
-          <ListItemText primary="Search" />
+          <TextField variant="standard" label="Search" size="small"  sx={{marginBottom: "7px"}} />
         </ListItem>
         <ListItem button onClick={toggleDarkMode}>
         <ListItemIcon>
