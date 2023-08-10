@@ -4,9 +4,10 @@ import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import React, { useState } from "react";
 import Switch from "@mui/material/Switch";
 import styles from "../styles/MuteSwitch.module.css";
+import { useThemeContext } from "../utils/ThemeContext";
 
 const MuteSwitch = () => {
-  const [muted, setMuted] = useState(true); // Track muted state, false = unmuted, true = muted
+  const { muted, setMuted } = useThemeContext();
 
   const handleMutedToggle = () => {
     setMuted((prevMuted) => !prevMuted); // Toggle the muted state

@@ -51,6 +51,9 @@ export const ThemeContextProvider = ({ children }) => {
     setOpen(!open);
   };
 
+  const [muted, setMuted] = useState(true); // Track muted state, false = unmuted, true = muted
+
+
   const handleThemeChange = (color) => {
     const secondaryColor = darkenColor(color, 16);
     const backgroundColorDefault = lightenColor(color, 6);
@@ -102,6 +105,8 @@ export const ThemeContextProvider = ({ children }) => {
         handleColorChange,
         open,
         toggleDrawer,
+        muted,
+        setMuted,
       }}
     >
       {children}
