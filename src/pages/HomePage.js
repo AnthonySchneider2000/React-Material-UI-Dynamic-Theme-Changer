@@ -1,4 +1,4 @@
-//TODOS: ANIMATIONS, fill whitespace, signup page, add bevel to sidebar, fix color selector changing theme
+//TODOS: ANIMATIONS, fill whitespace, signup page, add bevel to sidebar, footer length, fix color selector changing theme
 import React from "react";
 import { Box, CssBaseline, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
