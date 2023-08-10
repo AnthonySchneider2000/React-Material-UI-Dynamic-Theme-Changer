@@ -14,11 +14,7 @@ import { useThemeContext } from "../utils/ThemeContext";
 import Footer from "../components/Footer";
 
 export default function Dashboard() {
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
-  const { currentTheme } = useThemeContext();
+  const { currentTheme, open, toggleDrawer } = useThemeContext();
 
   return (
     <ThemeProvider theme={currentTheme}>
@@ -76,8 +72,8 @@ export default function Dashboard() {
             </Grid>
           </Container>
         </Box>
+        <Footer currentTheme={currentTheme} />
       </Box>
-      <Footer currentTheme={currentTheme}/>
     </ThemeProvider>
   );
 }

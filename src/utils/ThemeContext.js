@@ -46,6 +46,10 @@ export const ThemeContextProvider = ({ children }) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [colorPickerColor, setColorPickerColor] = useState("#1976d2"); // Default initial color
   const [userInputColor, setUserInputColor] = useState("#1976d2"); // Default initial color
+  const [open, setOpen] = useState(true);
+  const toggleDrawer = () => {
+    setOpen(!open);
+  };
 
   const handleThemeChange = (color) => {
     const secondaryColor = darkenColor(color, 16);
@@ -96,6 +100,8 @@ export const ThemeContextProvider = ({ children }) => {
         colorPickerColor,
         userInputColor,
         handleColorChange,
+        open,
+        toggleDrawer,
       }}
     >
       {children}

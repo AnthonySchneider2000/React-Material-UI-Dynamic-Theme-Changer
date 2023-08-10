@@ -10,24 +10,20 @@ import AppBarComponent from "../components/AppBarComponent";
 import CollapseableSidebar from "../components/CollapseableSidebar";
 
 const HomePage = () => {
-  const { currentTheme } = useThemeContext();
-  const [open, setOpen] = React.useState(true);
-  const toggleDrawer = () => {
-    setOpen(!open);
-  };
+  const { currentTheme, open, toggleDrawer } = useThemeContext();
+
 
   return (
     <ThemeProvider theme={currentTheme}>
       <CssBaseline />
       <Box sx={{ display: "flex" }}>
-
         <AppBarComponent
           open={open}
           toggleDrawer={toggleDrawer}
           title="Home Page"
         />
         <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
-        
+
         <Box
           component="main"
           sx={{
@@ -40,15 +36,13 @@ const HomePage = () => {
           because the actual toolbar is displayed from AppBarComponent*/}
           <Toolbar sx={{ height: 100 }} />
 
-
           {/* testimonials */}
           <div className={styles.carouselContainer}>
             <TrailsCarousel />
           </div>
-
-          {/* footer */}
-          <Footer currentTheme={currentTheme} />
         </Box>
+        {/* footer */}
+        <Footer currentTheme={currentTheme} />
       </Box>
     </ThemeProvider>
   );
