@@ -8,7 +8,6 @@ import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { drawerWidth } from "../utils/constants";
-import styles from "../styles/app.module.css";
 import MuteSwitch from "../components/MuteSwitch";
 import StyledAvatar from "../components/StyledAvatar";
 import { Link } from "react-router-dom";
@@ -66,17 +65,13 @@ const AppBarComponent = ({ open, toggleDrawer, title }) => {
           </Badge>
         </IconButton> */}
         {/* mute switch */}
-        <div className={styles.muteSwitch}>
-          <MuteSwitch />
-        </div>
+        <MuteSwitch />
         {/* avatar */}
         <Link
           to="/profile"
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <div className={styles.avatar}>
-            <StyledAvatar>TS</StyledAvatar>
-          </div>
+          <StyledAvatar>TS</StyledAvatar>
         </Link>
       </Toolbar>
     </AppBarContainer>
