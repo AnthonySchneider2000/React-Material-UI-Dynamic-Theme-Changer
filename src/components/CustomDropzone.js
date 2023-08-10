@@ -10,6 +10,8 @@ const StyledDropzone = styled('div')(({ theme }) => ({
   alignItems: 'center', // Center horizontally
   padding: '20px',
   margin: '20px',
+  width: '100%',
+  height: '15vh',
   borderWidth: 2,
   borderRadius: 2,
   borderColor: theme.palette.primary.main,
