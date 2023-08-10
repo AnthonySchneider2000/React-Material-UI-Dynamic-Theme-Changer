@@ -11,6 +11,7 @@ import Orders from "../components/Orders";
 import CollapseableSidebar from "../components/CollapseableSidebar";
 import AppBarComponent from "../components/AppBarComponent";
 import { useThemeContext } from "../utils/ThemeContext";
+import Footer from "../components/Footer";
 
 export default function Dashboard() {
   const [open, setOpen] = React.useState(true);
@@ -76,6 +77,7 @@ export default function Dashboard() {
           </Container>
         </Box>
       </Box>
+      <Footer currentTheme={currentTheme}/>
     </ThemeProvider>
   );
 }
