@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
-// import Badge from "@mui/material/Badge";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
+import Badge from "@mui/material/Badge";
+import NotificationsIcon from "@mui/icons-material/Notifications";
 import { styled } from "@mui/material/styles";
 import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -59,19 +59,20 @@ const AppBarComponent = ({ open, toggleDrawer, title }) => {
         >
           {title}
         </Typography>
-        {/* <IconButton color="inherit">
+        {/* mute switch */}
+        <MuteSwitch />
+        {/* notifications */}
+        <IconButton color="inherit">
           <Badge badgeContent={4} color="secondary">
             <NotificationsIcon />
           </Badge>
-        </IconButton> */}
-        {/* mute switch */}
-        <MuteSwitch />
+        </IconButton>
         {/* avatar */}
         <Link
           to="/profile"
           style={{ textDecoration: "none", color: "inherit" }}
         >
-          <StyledAvatar>TS</StyledAvatar>
+          <StyledAvatar sx={{ marginLeft: "15px" }}>TS</StyledAvatar>
         </Link>
       </Toolbar>
     </AppBarContainer>
