@@ -9,7 +9,7 @@ const StyledAvatar = styled(Avatar)(({ theme }) => ({
   transition: theme.transitions.create(['background-color', 'transform'], {
     duration: theme.transitions.duration.standard,
   }),
-  border: `1px solid ${theme.palette.primary.light}`,
+  border: `1px solid ${theme.palette.primary.dark}`,
   '&:hover': {
     backgroundColor: theme.palette.secondary.main,
     border: `1px solid ${theme.palette.secondary.main}`,
