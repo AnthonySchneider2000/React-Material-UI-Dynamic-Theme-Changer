@@ -67,7 +67,7 @@ const HomePage = () => {
                 </Button>
               </Link>
               <CustomDropzone onDrop={handleDrop} />
-              <Box mt={2}>
+              <Box mt={2} sx={{width: "100%"}}>
                 {uploadedFiles.length > 0 && (
                   <Paper
                     elevation={3}
