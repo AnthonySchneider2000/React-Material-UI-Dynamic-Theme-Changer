@@ -17,6 +17,7 @@ import Typography from "@mui/material/Typography";
 import GlobalStyles from "@mui/material/GlobalStyles";
 import Container from "@mui/material/Container";
 import { useThemeContext } from "../utils/ThemeContext";
+import { Link } from "react-router-dom";
 
 const tiers = [
   {
@@ -168,7 +169,7 @@ export default function Pricing() {
                       </ul>
                     </CardContent>
                     <CardActions>
-                      <Button fullWidth variant="contained">
+                      <Button fullWidth variant="contained" component={Link} to="/checkout">
                         Get Started
                       </Button>
                     </CardActions>
