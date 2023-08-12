@@ -1,4 +1,4 @@
-//TODOS: ANIMATIONS, fill whitespace, make layout component, signup page, add bevel to sidebar, footer length, fix color selector changing theme
+//TODOS: ANIMATIONS, move dashboard to secondary sidebar, make layout component, signup page, add bevel to sidebar, footer length, fix color selector changing theme
 import React from "react";
 import { Box, CssBaseline, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
