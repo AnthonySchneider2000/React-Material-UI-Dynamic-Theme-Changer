@@ -75,7 +75,7 @@ function Item(props) {
       </StyledImageContainer>
       <h2>{props.item.name}</h2>
       <p>{props.item.description}</p>
-      <Link to="/profile">
+      <Link to="/pricing">
         <Button variant="contained" style={{ width: "100%" }}>
           Book a tour!
         </Button>
