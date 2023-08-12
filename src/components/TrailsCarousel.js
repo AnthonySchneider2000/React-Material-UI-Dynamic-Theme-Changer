@@ -1,6 +1,7 @@
 import React from "react";
 import Carousel from "react-material-ui-carousel";
 import { Paper, Button, styled } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const StyledImageContainer = styled("div")({
   width: 760, // Set the desired width
@@ -17,10 +18,9 @@ const StyledImageContainer = styled("div")({
 const StyledPaper = styled(Paper)({
   textAlign: "center",
   // Add any additional styles for the Paper component if needed
-    "&:hover": {
+  "&:hover": {
     boxShadow: "0 0 10px 3px",
-    },
-
+  },
 });
 
 function TrailsCarousel(props) {
@@ -59,7 +59,7 @@ function TrailsCarousel(props) {
     // customise the nav button to be in the middle of the image, not the whole carousel
     // below is an absolutely abysmal way of doing it, but it works
     // if you change the image height, this needs to be changed too
-    <Carousel navButtonsWrapperProps={{ style: { top: "-13%"} }}> 
+    <Carousel navButtonsWrapperProps={{ style: { top: "-13%" } }}>
       {items.map((item, i) => (
         <Item key={i} item={item} />
       ))}
@@ -75,9 +75,11 @@ function Item(props) {
       </StyledImageContainer>
       <h2>{props.item.name}</h2>
       <p>{props.item.description}</p>
-      <Button variant="contained" style={{ width: "100%" }}>
-        Book a tour!
-      </Button>
+      <Link to="/profile">
+        <Button variant="contained" style={{ width: "100%" }}>
+          Book a tour!
+        </Button>
+      </Link>
     </StyledPaper>
   );
 }
