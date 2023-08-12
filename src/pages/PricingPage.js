@@ -101,9 +101,8 @@ export default function Pricing() {
               color="text.secondary"
               component="p"
             >
-              Quickly build an effective pricing table for your potential
-              customers with this layout. It&apos;s built with default MUI
-              components with little customization.
+              Discover our comprehensive tier offerings, expertly designed to
+              match your distinct preferences.
             </Typography>
           </Container>
           {/* End hero unit */}
@@ -123,7 +122,9 @@ export default function Pricing() {
                       title={tier.title}
                       subheader={tier.subheader}
                       titleTypographyProps={{ align: "center" }}
-                      action={tier.title === "Professional Tour" ? <StarIcon /> : null}
+                      action={
+                        tier.title === "Professional Tour" ? <StarIcon /> : null
+                      }
                       subheaderTypographyProps={{
                         align: "center",
                         color: currentTheme.palette.primary.contrastText,
