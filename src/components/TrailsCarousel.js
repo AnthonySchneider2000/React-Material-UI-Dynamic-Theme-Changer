@@ -76,7 +76,7 @@ function Item(props) {
       <h2>{props.item.name}</h2>
       <p>{props.item.description}</p>
       <Button variant="contained" style={{ width: "100%" }}>
-        Check it out!
+        Book a tour!
       </Button>
     </StyledPaper>
   );
