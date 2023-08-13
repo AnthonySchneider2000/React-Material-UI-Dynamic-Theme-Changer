@@ -6,7 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
-import { mainListItems } from '../components/listItems';
+import { mainListItems, adminListItems } from '../components/listItems';
 import { useThemeContext } from "../utils/ThemeContext";
 import toast from "react-hot-toast";
 import { drawerWidth } from '../utils/constants';
@@ -89,8 +89,8 @@ const CollapseableSidebar = ({ open, toggleDrawer }) => {
         colorPickerColor,
         handleColorChange,
       })}
-        {/* <Divider sx={{ my: 1 }} /> */}
-        {/* {secondaryListItems} */}
+        <Divider sx={{ my: 1 }} />
+        {adminListItems}
       </List>
     </DrawerContainer>
   );

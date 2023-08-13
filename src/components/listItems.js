@@ -34,12 +34,12 @@ export const mainListItems = ({
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItem>
-    <ListItem button component={Link} to="/dashboard">
+    {/* <ListItem button component={Link} to="/dashboard">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
-    </ListItem>
+    </ListItem> */}
     <ListItem button component={Link} to="/profile">
       <ListItemIcon>
         <AccountBoxIcon />
@@ -84,6 +84,19 @@ export const mainListItems = ({
   </React.Fragment>
 );
 
+export const adminListItems = (
+  <React.Fragment>
+    <ListSubheader component="div" inset>
+      Admin Tools
+    </ListSubheader>
+    <ListItem button component={Link} to="/dashboard">
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary="Dashboard" />
+    </ListItem>
+  </React.Fragment>
+);
 export const secondaryListItems = (
   <React.Fragment>
     <ListSubheader component="div" inset>
