@@ -15,7 +15,7 @@ const MuteSwitch = () => {
 
   return (
     <div className={styles.muteSwitchContainer}>
-      {muted ? <VolumeUpIcon /> : <VolumeOffIcon />}
+      {muted ? <VolumeUpIcon style={{ marginRight: "-10px" }} /> : <VolumeOffIcon style={{ marginRight: "-10px" }} />}
       <Switch color="secondary" checked={muted} onChange={handleMutedToggle} />
     </div>
   );
