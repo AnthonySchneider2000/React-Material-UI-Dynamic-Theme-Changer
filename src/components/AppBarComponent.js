@@ -9,10 +9,9 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { drawerWidth } from "../utils/constants";
 import MuteSwitch from "../components/MuteSwitch";
-import StyledAvatar from "../components/StyledAvatar";
 import { AvatarMenu } from "../components/StyledAvatar";
-import { Link } from "react-router-dom";
 import Box from "@mui/material/Box";
+// import { Link } from "react-router-dom";
 
 const AppBarContainer = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -71,12 +70,12 @@ const AppBarComponent = ({ open, toggleDrawer, title }) => {
         </IconButton>
         {/* avatar */}
         <Box style={{ marginLeft: "15px" }}>
-          <Link
+          {/* <Link
             to="/profile"
             style={{ textDecoration: "none", color: "inherit" }}
-          >
-            <AvatarMenu>TS</AvatarMenu>
-          </Link>
+          > */}
+          <AvatarMenu>TS</AvatarMenu>
+          {/* </Link> */}
         </Box>
       </Toolbar>
     </AppBarContainer>

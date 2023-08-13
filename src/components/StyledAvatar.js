@@ -4,7 +4,7 @@ import Avatar from '@mui/material/Avatar';
 import React from 'react';
 import { Menu } from '@mui/material';
 import { MenuItem } from '@mui/material';
-import { ClickAwayListener } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const StyledAvatar = styled(Avatar)(({ theme }) => ({
   cursor: 'pointer',
@@ -62,8 +62,7 @@ export const AvatarMenu = ({ children }) => {
         ref={anchorRef}
         aria-controls={open ? 'menu-list-grow' : undefined}
         aria-haspopup="true"
-        onMouseEnter={handleToggle}
-        onMouseLeave={handleClose}
+        onClick={handleToggle}
       >
         {children}
       </StyledAvatar>
@@ -78,9 +77,10 @@ export const AvatarMenu = ({ children }) => {
           horizontal: 'left',
         }}
       >
-        <MenuItem>Profile</MenuItem>
-        <MenuItem>My account</MenuItem>
-        <MenuItem>Logout</MenuItem>
+        <MenuItem component={Link} to="/profile" divider={true}>Profile</MenuItem>
+        <MenuItem divider={true}>Favorites</MenuItem>
+        <MenuItem divider={true}>History</MenuItem>
+        <MenuItem component={Link} to="/">Logout</MenuItem>
       </Menu>
     </>
   );
