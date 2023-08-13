@@ -8,10 +8,6 @@ import Layout from "../components/Layout";
 const HomePage = () => {
   return (
     <Layout title="Home" toolbarHeight={100}>
-          {/* Toolbar adds some padding, I dont think it's useful for anything else
-          because the actual toolbar is displayed from AppBarComponent*/}
-          <Toolbar sx={{ height: 100 }} />
-
           {/* trail carousel */}
           <div className={styles.carouselContainer}>
             <TrailsCarousel />
