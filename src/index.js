@@ -7,6 +7,8 @@ import EditProfilePage from "./pages/EditProfilePage";
 import Dashboard from "./pages/Dashboard";
 import Pricing from "./pages/PricingPage";
 import Checkout from "./pages/CheckoutPage";
+import Login from "./pages/LoginPage";
+import Register from "./pages/RegisterPage";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@fontsource/roboto/300.css"; // Import the font for font-weight: 300
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
   {
     path: "checkout",
     element: <Checkout />,
+  },
+  {
+    path: "login",
+    element: <Login />,
+  },
+  {
+    path: "register",
+    element: <Register />,
   },
 ]);
 
