@@ -1,8 +1,6 @@
 import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Toolbar from "@mui/material/Toolbar";
 import Paper from "@mui/material/Paper";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -12,11 +10,8 @@ import Typography from "@mui/material/Typography";
 import AddressForm from "../components/AddressForm";
 import PaymentForm from "../components/PaymentForm";
 import Review from "../components/Review";
-import { ThemeProvider } from "@mui/material";
-import CollapseableSidebar from "../components/CollapseableSidebar";
-import AppBarComponent from "../components/AppBarComponent";
 import { useThemeContext } from "../utils/ThemeContext";
-import Footer from "../components/Footer";
+import Layout from "../components/Layout";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 
@@ -35,7 +30,7 @@ function getStepContent(step) {
 
 export default function Checkout() {
   const [activeStep, setActiveStep] = React.useState(0);
-  const { currentTheme, open, toggleDrawer } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   const handleNext = () => {
     setActiveStep(activeStep + 1);
@@ -47,26 +42,7 @@ export default function Checkout() {
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={currentTheme}>
-        <CssBaseline />
-        <Box sx={{ display: "flex" }}>
-          <AppBarComponent
-            open={open}
-            toggleDrawer={toggleDrawer}
-            title="Checkout"
-          />
-          <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              height: "100vh",
-              overflow: "auto",
-            }}
-          >
-            {/* Toolbar adds some padding, I dont think it's useful for anything else
-          because the actual toolbar is displayed from AppBarComponent*/}
-            <Toolbar sx={{ height: 100 }} />
+      <Layout title="Checkout" toolbarHeight={100}>
             <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
               <Paper
                 variant="outlined"
@@ -117,10 +93,8 @@ export default function Checkout() {
                 )}
               </Paper>
             </Container>
-          </Box>
-          <Footer currentTheme={currentTheme} />
-        </Box>
-      </ThemeProvider>
+          
+    </Layout>
     </React.Fragment>
   );
 }
