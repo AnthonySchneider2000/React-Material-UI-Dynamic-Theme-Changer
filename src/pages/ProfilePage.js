@@ -1,11 +1,5 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Container,
-  Box,
-  Paper,
-  Toolbar,
-} from "@mui/material";
+import { Button, Container, Box, Paper, Typography } from "@mui/material";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
 import CustomDropzone from "../components/CustomDropzone";
@@ -24,9 +18,10 @@ const HomePage = () => {
       {/* content */}
       <Container style={{ textAlign: "center" }}>
         <Box display="flex" flexDirection={"column"} alignItems="center" mt={2}>
-          {/* Toolbar adds some padding, I dont think it's useful for anything else
-              because the actual toolbar is displayed from AppBarComponent*/}
-          <Toolbar sx={{ height: 100 }} />
+          {/* header typography saying profile */}
+          <Typography variant="h2" component="h1" gutterBottom>
+            Tony Schneider
+          </Typography>
           {/* link to edit profile */}
           <Link to="/edit-profile" state={{}}>
             <Button
