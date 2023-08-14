@@ -9,6 +9,7 @@ import Pricing from "./pages/PricingPage";
 import Checkout from "./pages/CheckoutPage";
 import Login from "./pages/LoginPage";
 import Register from "./pages/RegisterPage";
+import Settings from "./pages/SettingsPage";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "@fontsource/roboto/300.css"; // Import the font for font-weight: 300
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
   {
     path: "register",
     element: <Register />,
+  },
+  {
+    path: "settings",
+    element: <Settings />,
   },
 ]);
 

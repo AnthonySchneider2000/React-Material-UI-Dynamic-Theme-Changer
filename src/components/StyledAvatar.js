@@ -79,7 +79,7 @@ export const AvatarMenu = ({ children }) => {
       >
         <MenuItem component={Link} to="/profile" divider={true}>Profile</MenuItem>
         <MenuItem divider={true}>Favorites</MenuItem>
-        <MenuItem divider={true}>History</MenuItem>
+        <MenuItem component={Link} to="/settings" divider={true}>Settings</MenuItem>
         <MenuItem component={Link} to="/login">Logout</MenuItem>
       </Menu>
     </>
