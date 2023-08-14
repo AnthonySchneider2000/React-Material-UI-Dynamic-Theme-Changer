@@ -11,7 +11,7 @@ const SettingsColumnBox = ({ children }) => {
         justifyContent: "flex-start",
         border: "1px solid black",
         width: "20%",
-        gap: `min(10%, ${maxSpacing}px)`, // This calculates the gap based on 10% or 50px, whichever is smaller.
+        gap: `min(7%, ${maxSpacing}px)`, // This calculates the gap based on 10% or 50px, whichever is smaller.
       }}
     >
       {children}

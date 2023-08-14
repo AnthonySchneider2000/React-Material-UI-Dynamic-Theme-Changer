@@ -7,6 +7,8 @@ import {
   FormControlLabel,
   Slider,
   Typography,
+  Select,
+  MenuItem,
 } from "@mui/material";
 import BrightnessIcon from "@mui/icons-material/BrightnessMedium";
 import PaletteIcon from "@mui/icons-material/Palette";
@@ -15,13 +17,12 @@ import SettingsColumnBox from "../components/SettingsComponents/SettingsColumnBo
 import SettingsItemBox from "../components/SettingsComponents/SettingsItemBox";
 
 const Settings = () => {
-    
   return (
     <Layout title="Settings" toolbarHeight={100}>
       {/* outer row box, contains both settings columns */}
       <Box
         sx={{
-          height: "50%",
+          height: "80%",
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
@@ -30,15 +31,30 @@ const Settings = () => {
         {/* inner column boxes, contain settings items */}
         <SettingsColumnBox>
           <SettingsItemBox>
-            <Button variant="contained" startIcon={<BrightnessIcon />}>
-              Brightness
-            </Button>
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",
+              }}
+            >
+              {/* brightness icon */}
+              <BrightnessIcon />
+              {/* brightness typography */}
+              <Typography sx={{marginRight: "12px"}} align="center" id="brightness-slider" gutterBottom>
+                Brightness
+              </Typography>
+            </Box>
+            {/* brightness slider */}
+            <Slider aria-labelledby="brightness-slider" />
           </SettingsItemBox>
+
           <SettingsItemBox>
             <FormControlLabel control={<Checkbox />} label="Dark Mode" />
           </SettingsItemBox>
+
           <SettingsItemBox>
-            <Typography id="volume-slider" gutterBottom>
+            <Typography align="center" id="volume-slider" gutterBottom>
               Volume
             </Typography>
             <Slider aria-labelledby="volume-slider" />
@@ -53,12 +69,22 @@ const Settings = () => {
             </Button>
           </SettingsItemBox>
 
-          {/* settings item box */}
           <SettingsItemBox>
             <Button variant="contained" startIcon={<VolumeIcon />}>
               Sound
             </Button>
             <Slider aria-labelledby="volume-slider" />
+          </SettingsItemBox>
+
+          <SettingsItemBox>
+            <Typography>Select Language</Typography>
+            <Select value="en" size="small">
+              <MenuItem value="en">English</MenuItem>
+              <MenuItem value="es">Spanish</MenuItem>
+              {/* Add more languages */}
+              <MenuItem value="fr">French</MenuItem>
+              <MenuItem value="de">German</MenuItem>
+            </Select>
           </SettingsItemBox>
         </SettingsColumnBox>
       </Box>
