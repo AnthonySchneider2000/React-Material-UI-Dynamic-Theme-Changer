@@ -40,8 +40,12 @@ const Settings = () => {
             >
               {/* brightness icon */}
               <BrightnessIcon />
-              {/* brightness typography */}
-              <Typography sx={{marginRight: "12px"}} align="center" id="brightness-slider" gutterBottom>
+              {/* brightness typography, featuring scuffed centering */}
+              <Typography
+                sx={{ marginRight: "12px" }}
+                id="brightness-slider"
+                gutterBottom
+              >
                 Brightness
               </Typography>
             </Box>
