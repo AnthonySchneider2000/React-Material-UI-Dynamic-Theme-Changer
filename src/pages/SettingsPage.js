@@ -15,6 +15,7 @@ import SettingsColumnBox from "../components/SettingsComponents/SettingsColumnBo
 import SettingsItemBox from "../components/SettingsComponents/SettingsItemBox";
 
 const Settings = () => {
+    
   return (
     <Layout title="Settings" toolbarHeight={100}>
       {/* outer row box, contains both settings columns */}
@@ -26,25 +27,32 @@ const Settings = () => {
           justifyContent: "space-evenly",
         }}
       >
-        
         {/* inner column boxes, contain settings items */}
         <SettingsColumnBox>
-          <Button variant="contained" startIcon={<BrightnessIcon />}>
-            Brightness
-          </Button>
-          <FormControlLabel control={<Checkbox />} label="Dark Mode" />
-          <Typography id="volume-slider" gutterBottom>
-            Volume
-          </Typography>
-          <Slider aria-labelledby="volume-slider" />
+          <SettingsItemBox>
+            <Button variant="contained" startIcon={<BrightnessIcon />}>
+              Brightness
+            </Button>
+          </SettingsItemBox>
+          <SettingsItemBox>
+            <FormControlLabel control={<Checkbox />} label="Dark Mode" />
+          </SettingsItemBox>
+          <SettingsItemBox>
+            <Typography id="volume-slider" gutterBottom>
+              Volume
+            </Typography>
+            <Slider aria-labelledby="volume-slider" />
+          </SettingsItemBox>
         </SettingsColumnBox>
 
         {/* inner column 2 */}
         <SettingsColumnBox>
-          <Button variant="contained" startIcon={<PaletteIcon />}>
-            Color Theme
-          </Button>
-          <FormControlLabel control={<Checkbox />} label="Custom Colors" />
+          <SettingsItemBox>
+            <Button variant="contained" startIcon={<PaletteIcon />}>
+              Color Theme
+            </Button>
+          </SettingsItemBox>
+
           {/* settings item box */}
           <SettingsItemBox>
             <Button variant="contained" startIcon={<VolumeIcon />}>
