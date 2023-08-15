@@ -10,7 +10,7 @@ Welcome to my Trail Tour booking web app! This repository showcases my frontend 
 
 - **App Bar (Header):** The app features a top app bar for quick access to important actions and information.
 
-- **Footer:** A footer section provides additional links and information about the app.
+- **Footer:** A footer section provides copyright information.
 
 - **Themes:** Users can select between light and dark themes, and even create custom themes by selecting colors from a color picker. Selected themes are persisted across pages.
 
@@ -18,8 +18,8 @@ Welcome to my Trail Tour booking web app! This repository showcases my frontend 
   - Home: Provides an overview of available trail tours.
   - Login: Allows users to log into their accounts.
   - Register: Allows new users to create accounts.
-  - Admin Dashboard: Accessible to administrators for managing tours and user data.
-  - Profile: Displays user information and booking history.
+  - Admin Dashboard: Allows admins to view sales information.
+  - Profile: Allows users to upload images of trails they have booked.
   - Edit Profile: Allows users to update their profile information.
   - Settings: Provides customizable app settings.
   - Pricing: Shows pricing information for different trail tours.
