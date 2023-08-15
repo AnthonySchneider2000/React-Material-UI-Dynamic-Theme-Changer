@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# Trail Tour Booking Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my Trail Tour booking web app! This repository showcases my frontend development skills using React and Material UI. The app allows users to explore and book trail tours, while demonstrating various features and design elements.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Responsive Design:** The app is designed to work seamlessly across various screen sizes and devices, ensuring a consistent user experience.
 
-### `npm start`
+- **Collapsible Sidebar:** A collapsible sidebar provides easy navigation and access to different sections of the app.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **App Bar (Header):** The app features a top app bar for quick access to important actions and information.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Footer:** A footer section provides additional links and information about the app.
 
-### `npm test`
+- **Themes:** Users can select between light and dark themes, and even create custom themes by selecting colors from a color picker. Selected themes are persisted across pages.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Pages:** The app consists of the following pages:
+  - Home: Provides an overview of available trail tours.
+  - Login: Allows users to log into their accounts.
+  - Register: Allows new users to create accounts.
+  - Admin Dashboard: Accessible to administrators for managing tours and user data.
+  - Profile: Displays user information and booking history.
+  - Edit Profile: Allows users to update their profile information.
+  - Settings: Provides customizable app settings.
+  - Pricing: Shows pricing information for different trail tours.
+  - Checkout: Allows users to book a selected trail tour.
 
-### `npm run build`
+- **Animations:** The app incorporates animations to enhance user interactions. For instance, hovering over the profile icon triggers a growth animation, and clicking the icon reveals a dropdown menu.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Toast Messages:** React-hot-toast is used to display toast messages, ensuring smooth and non-intrusive feedback to user actions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the app locally and explore its features:
 
-### `npm run eject`
+1. Clone this repository: `git clone https://github.com/your-username/your-repo.git`
+2. Navigate to the project directory: `cd your-repo`
+3. Install dependencies: `npm install`
+4. Start the development server: `npm start`
+5. Open your web browser and go to `http://localhost:3000`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Usage
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Explore the various pages through the sidebar and app bar navigation.
+- Try out the different themes available in the settings section.
+- Test user interactions, such as booking a trail tour, updating profile information, and exploring the admin dashboard.
+- Experience the animations and toast messages that enhance the user experience.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Technologies Used
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- React: A JavaScript library for building user interfaces.
+- Material UI: A popular React UI framework that provides pre-designed components and styles.
+- react-hot-toast: A library for displaying toast messages in React applications.
 
-## Learn More
+## Feedback
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+I welcome any feedback you have regarding the app. Feel free to open issues for bug reports, feature requests, or general comments. Your input helps me improve the app and my frontend skills.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+This project is licensed under the [MIT License](LICENSE).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+Thank you for checking out my Trail Tour booking web app! I hope you enjoy exploring its features and design elements. If you have any questions or suggestions, please don't hesitate to get in touch.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Contact Me](mailto:tonyschneider3@gmail.com)
