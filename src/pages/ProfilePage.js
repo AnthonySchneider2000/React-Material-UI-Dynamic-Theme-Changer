@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Button, Container, Box, Paper, Typography } from "@mui/material";
 import ManageAccountsIcon from "@mui/icons-material/ManageAccounts";
 import { Link } from "react-router-dom"; // Import the Link component from react-router-dom
-import CustomDropzone from "../components/CustomDropzone";
-import UploadedImages from "../components/UploadedImages";
-import Layout from "../components/Layout";
+import CustomDropzone from "../components/Profile/CustomDropzone";
+import UploadedImages from "../components/Profile/UploadedImages";
+import Layout from "../components/Layout/Layout";
 
 const HomePage = () => {
   const [uploadedFiles, setUploadedFiles] = useState([]);

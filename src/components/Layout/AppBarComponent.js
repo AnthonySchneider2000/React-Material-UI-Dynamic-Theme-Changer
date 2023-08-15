@@ -7,9 +7,9 @@ import MuiAppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { drawerWidth } from "../utils/constants";
-import MuteSwitch from "../components/MuteSwitch";
-import { AvatarMenu } from "../components/StyledAvatar";
+import { drawerWidth } from "../../utils/constants";
+import MuteSwitch from "./MuteSwitch";
+import { AvatarMenu } from "./StyledAvatar";
 import Box from "@mui/material/Box";
 // import { Link } from "react-router-dom";
 

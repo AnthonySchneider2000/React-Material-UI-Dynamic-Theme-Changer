@@ -2,10 +2,10 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "../components/Chart";
-import Deposits from "../components/Deposits";
-import Orders from "../components/Orders";
-import Layout from "../components/Layout";
+import Chart from "../components/Dashboard/Chart";
+import Deposits from "../components/Dashboard/Deposits";
+import Orders from "../components/Dashboard/Orders";
+import Layout from "../components/Layout/Layout";
 
 export default function Dashboard() {
   return (

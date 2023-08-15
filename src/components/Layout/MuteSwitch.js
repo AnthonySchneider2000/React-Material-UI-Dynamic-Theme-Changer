@@ -3,8 +3,8 @@ import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import React from "react";
 import Switch from "@mui/material/Switch";
-import styles from "../styles/MuteSwitch.module.css";
-import { useThemeContext } from "../utils/ThemeContext";
+import styles from "./MuteSwitch.module.css";
+import { useThemeContext } from "../../utils/ThemeContext";
 
 const MuteSwitch = () => {
   const { muted, setMuted } = useThemeContext();

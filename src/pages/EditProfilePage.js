@@ -10,7 +10,7 @@ import styles from "../styles/app.module.css";
 import { useThemeContext } from "../utils/ThemeContext";
 import { DatePicker } from "@mui/x-date-pickers";
 import MuiPhoneNumber from "material-ui-phone-number";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 
 const EditProfilePage = () => {
   const { currentTheme } = useThemeContext();

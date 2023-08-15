@@ -7,11 +7,11 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import AddressForm from "../components/AddressForm";
-import PaymentForm from "../components/PaymentForm";
-import Review from "../components/Review";
+import AddressForm from "../components/Trails/AddressForm";
+import PaymentForm from "../components/Trails/PaymentForm";
+import Review from "../components/Trails/Review";
 import { useThemeContext } from "../utils/ThemeContext";
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 
 const steps = ["Shipping address", "Payment details", "Review your order"];
 

@@ -1,9 +1,9 @@
 import React from "react";
 import { ThemeProvider, CssBaseline, Toolbar } from "@mui/material";
-import AppBarComponent from "../components/AppBarComponent";
-import CollapseableSidebar from "../components/CollapseableSidebar";
-import Footer from "../components/Footer";
-import { useThemeContext } from "../utils/ThemeContext";
+import AppBarComponent from "./AppBarComponent";
+import CollapseableSidebar from "./Sidebar/CollapseableSidebar";
+import Footer from "./Footer";
+import { useThemeContext } from "../../utils/ThemeContext";
 import Box from "@mui/material/Box";
 
 const Layout = ({ children, title, toolbarHeight }) => {
