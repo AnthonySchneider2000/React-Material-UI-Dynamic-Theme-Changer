@@ -1,19 +1,20 @@
 import React from "react";
-import {
-  Button,
-  TextField,
-  Paper,
-  Grid,
-} from "@mui/material";
+import { Button, TextField, Paper, Grid } from "@mui/material";
 import { toast } from "react-hot-toast";
 import styles from "../styles/app.module.css";
-import { useThemeContext } from "../utils/ThemeContext";
 import { DatePicker } from "@mui/x-date-pickers";
+import { MuiChipsInput } from "mui-chips-input";
 import MuiPhoneNumber from "material-ui-phone-number";
 import Layout from "../components/Layout/Layout";
+import { useTheme } from "@mui/material/styles";
 
 const EditProfilePage = () => {
-  const { currentTheme } = useThemeContext();
+  const currentTheme = useTheme();
+  const [chips, setChips] = React.useState([]);
+
+  const handleChipsChange = (chips) => {
+    setChips(chips);
+  };
 
   const createToast = (message) => {
     let toastBackground = currentTheme.palette.primary.main;
@@ -68,6 +69,15 @@ const EditProfilePage = () => {
               label="Phone Number"
               defaultCountry={"us"}
               className={styles.inputField}
+            />
+          </Grid>
+          <Grid item xs={12} md={8} lg={9}>
+            {/* favorite tags */}
+            <MuiChipsInput
+              label="Favorite Tags"
+              className={styles.inputField}
+              value={chips}
+              onChange={handleChipsChange}
             />
           </Grid>
           <Grid item xs={12} md={8} lg={9}>
