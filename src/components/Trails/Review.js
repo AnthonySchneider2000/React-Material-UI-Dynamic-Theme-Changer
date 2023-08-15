@@ -7,35 +7,26 @@ import Grid from '@mui/material/Grid';
 
 const products = [
   {
-    name: 'Product 1',
-    desc: 'A nice thing',
-    price: '$9.99',
+    name: 'Trail Access Voucher',
+    desc: 'Access to the trail for a day',
+    price: '$10.00',
   },
   {
-    name: 'Product 2',
-    desc: 'Another thing',
-    price: '$3.45',
+    name: 'Trail Tour Package',
+    desc: 'Guided trail tour experience',
+    price: '$20.00',
   },
-  {
-    name: 'Product 3',
-    desc: 'Something else',
-    price: '$6.51',
-  },
-  {
-    name: 'Product 4',
-    desc: 'Best thing of all',
-    price: '$14.11',
-  },
-  { name: 'Shipping', desc: '', price: 'Free' },
+  { name: 'Shipping', desc: 'Digital Delivery', price: 'Free' },
 ];
 
-const addresses = ['1 MUI Drive', 'Reactville', 'Anytown', '99999', 'USA'];
+const addresses = ['123 Adventure Lane', 'Hikerstown', 'Outdoorsville', '54321', 'USA'];
 const payments = [
-  { name: 'Card type', detail: 'Visa' },
-  { name: 'Card holder', detail: 'Mr John Smith' },
-  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-1234' },
-  { name: 'Expiry date', detail: '04/2024' },
+  { name: 'Card type', detail: 'MasterCard' },
+  { name: 'Card holder', detail: 'Jane Doe' },
+  { name: 'Card number', detail: 'xxxx-xxxx-xxxx-5678' },
+  { name: 'Expiry date', detail: '09/2025' },
 ];
+
 
 export default function Review() {
   return (
@@ -53,7 +44,7 @@ export default function Review() {
         <ListItem sx={{ py: 1, px: 0 }}>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
-            $34.06
+            $30.00
           </Typography>
         </ListItem>
       </List>
