@@ -1,17 +1,17 @@
 import React from "react";
-import { ThemeProvider, CssBaseline, Toolbar } from "@mui/material";
+import { Toolbar } from "@mui/material";
 import AppBarComponent from "./AppBarComponent";
 import CollapseableSidebar from "./Sidebar/CollapseableSidebar";
 import Footer from "./Footer";
+import PersistedThemeProvider from "./PersistedThemeProvider";
 import { useThemeContext } from "../../utils/ThemeContext";
 import Box from "@mui/material/Box";
 
 const Layout = ({ children, title, toolbarHeight }) => {
-  const { currentTheme, open, toggleDrawer } = useThemeContext();
+  const { open, toggleDrawer } = useThemeContext();
 
   return (
-    <ThemeProvider theme={currentTheme}>
-      <CssBaseline />
+    <PersistedThemeProvider>
       <Box sx={{ display: "flex" }}>
         <AppBarComponent open={open} toggleDrawer={toggleDrawer} title={title} />
         <CollapseableSidebar open={open} toggleDrawer={toggleDrawer} />
@@ -25,11 +25,11 @@ const Layout = ({ children, title, toolbarHeight }) => {
         >
           <Toolbar sx={{ height: toolbarHeight }} />
           {children}
-          <Footer currentTheme={currentTheme} />
+          <Footer />
         </Box>
       </Box>
-    </ThemeProvider>
-  );
+    </PersistedThemeProvider>
+);
 };
 
 export default Layout;

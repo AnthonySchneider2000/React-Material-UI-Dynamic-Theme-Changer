@@ -1,7 +1,8 @@
 import React from "react";
 import { Paper, Typography } from "@mui/material";
-
-const Footer = ({ currentTheme }) => {
+import { useTheme } from '@mui/material/styles';
+const Footer = () => {
+  const currentTheme = useTheme();
   return (
     <Paper
       elevation={3}

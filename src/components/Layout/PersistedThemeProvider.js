@@ -1,2 +1,16 @@
-//this file should include the theme provider and wrap it's children in it
-//it should receive the theme from the theme context
+import React from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import { useThemeContext } from "../../utils/ThemeContext";
+
+const PersistedThemeProvider = ({ children }) => {
+  const { currentTheme } = useThemeContext();
+
+  return (
+    <ThemeProvider theme={currentTheme}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
+};
+
+export default PersistedThemeProvider;
