@@ -11,8 +11,8 @@ const SettingsColumnBox = ({ children }) => {
         flexDirection: "column",
         justifyContent: "flex-start",
         border: hasBorder ? "1px solid black" : "none", // Conditional border
-        width: "20%",
-        gap: `min(7%, ${maxSpacing}px)`, // This calculates the gap based on 10% or 50px, whichever is smaller.
+        width: "30%",
+        gap: `min(15%, ${maxSpacing}px)`, // This calculates the gap based on 10% or 50px, whichever is smaller.
       }}
     >
       {children}
