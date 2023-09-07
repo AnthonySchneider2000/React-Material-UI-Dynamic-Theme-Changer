@@ -9,7 +9,7 @@ import List from '@mui/material/List';
 import { mainListItems, adminListItems } from './listItems';
 import { useThemeContext } from '../../../utils/ThemeContext';
 import toast from "react-hot-toast";
-import { drawerWidth } from '../../../utils/constants';
+import { drawerWidth, maxDrawerWidth } from '../../../utils/constants';
 
 const DrawerContainer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme, open }) => ({
@@ -17,6 +17,7 @@ const DrawerContainer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !=
       position: 'relative',
       whiteSpace: 'nowrap',
       width: drawerWidth,
+      maxWidth: maxDrawerWidth,
       transition: theme.transitions.create('width', {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.enteringScreen,
